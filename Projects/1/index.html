@@ -1,0 +1,139 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Clicker Game - Lols Test</title>
+		<link rel="logo" type=".png" href="https://zak.jasonmccall.com//Images/Logo.png">
+		<style>
+		.hidden {
+			display: none;
+		}
+		.topnav {
+			background-color: rgb(100, 100, 100);
+			overflow: hidden;
+		}
+		.topnav a {
+			float: left;
+			text-align: center;
+			background-color: rgb(150, 150, 150);
+			color: black;
+			padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 20px;
+		}
+		.topnav a:hover {
+			background-color: rgb(175, 175, 175);
+			color: black;
+		}
+		.topnav a.active {
+			background-color: rgb(20, 20, 100);
+			color: rgb(200, 200, 200);
+		}
+		.Game {
+			background-color: rgb(160, 160, 160);
+			padding: 20px;
+			overflow: hidden;
+		}
+		.Game h1 {
+			text-align: center;
+		}
+		.Game div.Buttons {
+			background-color: rgb(180, 180, 180);
+			width: 100px;
+			overflow: hidden;
+		}
+		.Game div.Buttons p {
+			text-align: center;
+			float: down;
+		}
+		.CashButton {
+			background-color: rgb(200, 200, 200);
+			padding: 4px 3px;
+			margin: 12px;
+			width: 70px;
+		}
+		.MultiButton {
+			background-color: rgb(200, 200, 200);
+			padding: 4px 3px;
+			margin: 12px;
+			width: 70px;
+		}
+		body {
+			background-color: rgb(120, 120, 160);
+		}
+	</style>
+	<script>
+		function getCookie(cname) {
+		  let name = cname + "=";
+		  let ca = document.cookie.split(';');
+		  for(let i = 0; i < ca.length; i++) {
+		    let c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+		    if (c.indexOf(name) == 0) {
+		      return c.substring(name.length, c.length);
+		    }
+		  }
+		  return "";
+		}
+		function setCookie(cname, cvalue, exdays) {
+		  const d = new Date();
+		  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		  let expires = "expires="+ d.toUTCString();
+		  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		function load() {
+			document.getElementById("Money").innerHTML = "$ "+money;
+			document.getElementById("Multi").innerHTML = multi+"x Multiplyer. Cost: "+(multi*50);
+		}
+		var money = 0;
+		var multi = 1;
+		if (getCookie("money") != "") {
+			money=parseFloat(getCookie("money"));
+			multi=parseFloat(getCookie("multi"));
+		} else {
+			setCookie("money", money, 100);
+			setCookie("multi", multi, 100);
+		}
+		function moneyClick() {
+			money = money + (1*multi);
+			document.getElementById("Money").innerHTML = "";
+			setCookie("money", money, 100);
+			document.getElementById("Money").innerHTML = "$ "+money;
+		}
+		function multiClick() {
+			if (money >= (50*multi)) {
+				money = money - (50*multi);
+				multi = multi+1;
+				setCookie("multi", multi, 100)
+				document.getElementById("Money").innerHTML = "$ "+money;
+				document.getElementById("Multi").innerHTML = multi+"x Multi. Cost: "+(50*multi);
+			}
+		}
+	
+	</script>
+	</head>
+
+	<body onLoad="load()">
+		<div class="topnav">
+			<a href="https://zak.jasonmccall.com/Web/Projects/index.html" class="active">Projects</a>
+			<a href="https://zak.jasonmccall.com/Web/About/index.html">About Me</a>
+			<a href="https://zak.jasonmccall.com/Web/Update/index.html">Updates</a>
+			<a href="https://zak.jasonmccall.com/Web/Deforest/index.html">Deforestation</a>
+		</div>
+		<div class="Game">
+			<p>Your data will be deleted after 100 days.</p>
+			<h3 id="Money">$ 0</h3>
+			<h3 id="Multi">1x</h3>
+			<div class="Buttons">
+				<div class="CashButton">
+					<p onclick="moneyClick()">Get Cash</p>
+				</div>
+				<div class="MultiButton">
+					<p onclick="multiClick()">Get Multi</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
