@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Clicker Game - Lols Test</title>
-		<link rel="logo" type=".png" href="https://zak.jasonmccall.com//Images/Logo.png">
+		<link rel="logo" type=".png" href="https://zak.jasonmccall.com/Images/Logo.png">
 		<style>
 		.hidden {
 			display: none;
@@ -89,6 +89,7 @@
 		}
 		var money = 0;
 		var multi = 1;
+		var Debounce = false;
 		if (getCookie("money") != "") {
 			money=parseFloat(getCookie("money"));
 			multi=parseFloat(getCookie("multi"));
@@ -97,18 +98,24 @@
 			setCookie("multi", multi, 100);
 		}
 		function moneyClick() {
-			money = money + (1*multi);
-			document.getElementById("Money").innerHTML = "";
-			setCookie("money", money, 100);
-			document.getElementById("Money").innerHTML = "$ "+money;
+			if (Debounce == false) {
+				Debounce = true
+				money = money + (1*multi);
+				document.getElementById("Money").innerHTML = "";
+				setCookie("money", money, 100);
+				document.getElementById("Money").innerHTML = "$ "+money;
+				setTimeout(function(){ Debounce = false }, 250);
+			}
 		}
 		function multiClick() {
 			if (money >= (50*multi)) {
 				money = money - (50*multi);
 				multi = multi+1;
+				setCookie("money", money, 100);
 				setCookie("multi", multi, 100)
 				document.getElementById("Money").innerHTML = "$ "+money;
 				document.getElementById("Multi").innerHTML = multi+"x Multi. Cost: "+(50*multi);
+				
 			}
 		}
 	
@@ -120,12 +127,13 @@
 			<a href="https://zak.jasonmccall.com/Web/Projects/index.html" class="active">Projects</a>
 			<a href="https://zak.jasonmccall.com/Web/About/index.html">About Me</a>
 			<a href="https://zak.jasonmccall.com/Web/Update/index.html">Updates</a>
+			<a href="https://zak.jasonmccall.com/Web/Sponsers/index.html">Sponsers</a>
 			<a href="https://zak.jasonmccall.com/Web/Deforest/index.html">Deforestation</a>
 		</div>
 		<div class="Game">
-			<p>Your data will be deleted after 100 days.</p>
-			<h3 id="Money">$ 0</h3>
-			<h3 id="Multi">1x</h3>
+			<p>Your data will be deleted after 100 days of inactivity.</p>
+			<h3 id="Money">Haha :D YOU NEED FASTER INTERNET OR ENABLE JAVA SCRIPT</h3>
+			<h3 id="Multi">WHAT ^ HE SAID IS TRUE</h3>
 			<div class="Buttons">
 				<div class="CashButton">
 					<p onclick="moneyClick()">Get Cash</p>
