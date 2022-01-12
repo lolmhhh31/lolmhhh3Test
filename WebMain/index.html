@@ -1,0 +1,181 @@
+<!doctype html>
+
+<html>
+	<head>
+	<title>Projects - Lols Test</title>
+	<link rel="png" type="logo" href="https://zak.jasonmccall.com/Images/Logo.png">
+	<link rel="stylesheet" href="style.css">
+	<script>
+		function getURLVar(cname) {
+		  let name = cname + "=";
+		  let decodedCookie = location.search;
+		  let ca = decodedCookie.split('&');
+		  for(let i = 0; i <ca.length; i++) {
+		    let c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+		    if (c.indexOf(name) == 0) {
+		      return c.substring(name.length, c.length);
+		    }
+		  }
+		  return "Nothing Found";
+			location.search = ""
+		}
+		function PTN() {
+			document.getElementById("ProjectsTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("ProjectsTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("Projects").classList.add("show");
+			document.getElementById("Projects").classList.remove("hidden");
+			document.title = "Projects - Lols Test"
+		}
+		function ATN() {
+			document.getElementById("AboutMeTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("AboutMeTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("About").classList.add("show");
+			document.getElementById("About").classList.remove("hidden");
+			document.title = "About Me - Lols Test"
+		}
+		function UTN() {
+			document.getElementById("UpdatesTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("UpdatesTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("Updates").classList.add("show");
+			document.getElementById("Updates").classList.remove("hidden");
+			document.title = "Updates - Lols Test"
+		}
+		function STN() {
+			document.getElementById("SponsersTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("SponsersTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("Sponsers").classList.add("show");
+			document.getElementById("Sponsers").classList.remove("hidden");
+			document.title = "Sponsers - Lols Test";
+		}
+		function DTN() {
+			document.getElementById("DeforestationTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("DeforestationTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("Deforestation").classList.add("show");
+			document.getElementById("Deforestation").classList.remove("hidden");
+			document.title = "Deforestation - Lols Test"
+		}
+		function FTN() {
+			document.getElementById("FactorioTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("FactorioTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("Factorio").classList.add("show");
+			document.getElementById("Factorio").classList.remove("hidden");
+			document.title = "Factorio Mods - Lols Test"
+		}
+		function lOA() {
+			var tab = getURLVar("?tab")
+			console.log(tab)
+			if (tab == "projects" || tab == "undefined" || tab == "Nothing Found") {
+				PTN()
+			}
+			if (tab == "about") {
+				ATN()
+			}
+			if (tab == "uptates") {
+				UTN()
+			}
+			if (tab == "sponsers") {
+				STN()
+			}
+			if (tab == "deforest") {
+				DTN()
+			}
+			if (tab == "factorio") {
+				FTN()
+			}
+		}
+		function BCK(showDiv, PN) {
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById(showDiv).classList.add("show");
+			document.getElementById(showDiv).classList.remove("hidden");
+			document.title = PN+" - Lols Test"
+		}
+	</script>
+	</head>
+
+	<body onload="lOA()">
+		<div id="topnav" class="topnav">
+			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
+			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
+			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
+			<button id="SponsersTN" onclick="STN()" class="inactive">Sponsers</button>
+			<button id="DeforestationTN" onclick="DTN()" class="inactive">Deforestation</button>
+			<button id="FactorioTN" onclick="FTN()" class="inactive">Factorio Mods</button>
+		</div>
+		<div id="Loading" class="show">
+			<h2>Loading...</h2>
+		</div>
+		<div id="Projects" class="hidden">
+			<h2>My projects</h2>
+			<button id="cgb" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
+		</div>
+		<div id="About" class="hidden">
+			<h2>About me</h2>
+		</div>
+		<div id="Updates" class="hidden">
+			<h2>Updates</h2>
+		</div>
+		<div id="Sponsers" class="hidden">
+			<h2>Sponsers</h2>
+		</div>
+		<div id="Deforestation" class="hidden">
+			<h2>Deforestation</h2>
+		</div>
+		<div id="Factorio" class="hidden">
+			<h2>Factorio Mods</h2>
+		</div>
+		<div id="CG" class="hidden">
+			<p>Your data will be deleted after 100 days of inactivity</p>
+			<h2>Clicker Game</h2>
+
+			<p>Money: $0</p>
+			<p>Multi: +0x</p>
+
+			<p>Upgrades</p>
+			<div id="Upgrades" class="Upgrades">
+				<button id="Multi" class="UB">Multiplyer</button>
+				<button id="MPC" class="UB">Money Per Click</button>
+			</div>
+		</div>
+	</body>
+</html>

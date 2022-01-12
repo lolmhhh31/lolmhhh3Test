@@ -1,0 +1,59 @@
+.hidden {
+			display: none;
+		}
+		.topnav {
+			background-color: rgb(100, 100, 100);
+			overflow: hidden;
+		}
+		.topnav button {
+			float: left;
+			border: none; 
+			text-align: center;
+			background-color: rgb(150, 150, 150);
+			color: black;
+			padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 20px;
+		}
+		.topnav button:hover {
+			background-color: rgb(175, 175, 175);
+			color: black;
+		}
+		.topnav button.active {
+			background-color: rgb(20, 20, 100);
+			color: rgb(200, 200, 200);
+		}
+		.show {
+			background-color: rgb(160, 160, 160);
+			padding: 20px;
+			display: block;
+			overflow: hidden;
+		}
+		.show h2 {
+			text-decoration: none;
+		}
+		.warning {
+			background-color: #c31d1d;
+			padding: 1px;
+		}
+		.warning h3 {
+			text-align: center;
+		}
+		body {
+			background-color: #8287c4;
+			font-family: Arial, sans-serif;
+		}
+		.Upgrades .UB {
+			float: below;
+			border: none; 
+			text-align: center;
+			background-color: rgb(200, 200, 200);
+			color: black;
+			padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 20px;
+		}
+		.Upgrades {
+			padding: 5px;
+			background-color: #dbdbdb;
+		}
