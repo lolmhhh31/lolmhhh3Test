@@ -3,8 +3,17 @@
 <html>
 	<head>
 	<title>Projects - Lols Test</title>
-	<link rel="png" type="logo" href="https://zak.jasonmccall.com/Images/Logo.png">
+	<link rel="icon" href="https://zak.jasonmccall.com/favicon.png">
 	<link rel="stylesheet" href="style.css">
+
+	<noscript>
+		<div id="warning" class="warning"><h3>Enable JavaScript to use top nav, and Buttons.</h3></div>
+	</noscript>
+		
+		<!-- Top Nav Java Script -->
+
+		<!-- Vars ?pt=Projects&p=MT -->
+		
 	<script>
 		function getURLVar(cname) {
 		  let name = cname + "=";
@@ -19,8 +28,56 @@
 		      return c.substring(name.length, c.length);
 		    }
 		  }
-		  return "Nothing Found";
+		  return "";
 			location.search = ""
+		}
+		function BCK(showDiv, PN) {
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById(showDiv).classList.add("show");
+			document.getElementById(showDiv).classList.remove("hidden");
+			document.title = PN+" - Lols Test"
+		}
+		function getCookie(cname) {
+				  let name = cname + "=";
+				  let decodedCookie = decodeURIComponent(document.cookie);
+				  let ca = decodedCookie.split(';');
+				  for(let i = 0; i <ca.length; i++) {
+				    let c = ca[i];
+				    while (c.charAt(0) == ' ') {
+				      c = c.substring(1);
+				    }
+				    if (c.indexOf(name) == 0) {
+				      return c.substring(name.length, c.length);
+				    }
+				  }
+				  return "";}	
+		function MIT() {
+			var pt = getURLVar("?pt");
+			var p = getURLVar("p");
+			if (pt == "Projects") {
+				if (p == "MT") {
+					BCK("MT", "Mit App Web");
+				}
+				var x = document.getElementsByClassName("active");
+				x[0].classList.add("inactive");
+				x[0].classList.remove("active");
+				document.getElementById("PTN").classList.add("active");
+				document.getElementById("SetUserNameTN").classList.add("inactive")
+				document.getElementById("SetUserNameTN").classList.remove("hidden")
+			} else {
+				console.log("Not From MIT")
+			}
+		}
+		function GetAdmin() {
+			var AD = getCookie("admin");
+
+			if (AD == 1) {
+				console.log("Welcome, Admin");
+				document.getElementById("AdminMenTN").classList.add("inactive")
+				document.getElementById("AdminMenTN").classList.remove("hidden")
+			}
 		}
 		function PTN() {
 			document.getElementById("ProjectsTN").classList.remove("inactive");
@@ -100,10 +157,29 @@
 			document.getElementById("Factorio").classList.remove("hidden");
 			document.title = "Factorio Mods - Lols Test"
 		}
+		function ADTN() {
+			document.getElementById("AdminMenTN").classList.remove("inactive");
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById("AdminMenTN").classList.add("active");
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById("admin").classList.add("show");
+			document.getElementById("admin").classList.remove("hidden");
+			document.title = "admin - Lols Test"
+		}
+		function loaded() {
+		document.getElementById("MOND").innerHTML = "Money: $"+Mon;
+		document.getElementById("MULD").innerHTML = "Multi: +"+(Multi-1)+"x";
+		document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
+	}
 		function lOA() {
-			var tab = getURLVar("?tab")
+			loaded();
+			var tab = getURLVar("?tab");
 			console.log(tab)
-			if (tab == "projects" || tab == "undefined" || tab == "Nothing Found") {
+			if (tab == "projects" || tab == "undefined" || tab == "") {
 				PTN()
 			}
 			if (tab == "about") {
@@ -121,19 +197,76 @@
 			if (tab == "factorio") {
 				FTN()
 			}
+			if (tab == "cale") {
+				location.href = "https://zak.jasonmccall.com/CalebProj/"
+			}
+			MIT();
+			GetAdmin()
 		}
-		function BCK(showDiv, PN) {
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById(showDiv).classList.add("show");
-			document.getElementById(showDiv).classList.remove("hidden");
-			document.title = PN+" - Lols Test"
+
+		// Admin Functions \\
+
+		function TCP() {
+			location.href = "https://zak.jasonmccall.com/CalebProj/"
+		}
+			
+    // Clicker Game Java Script \\
+		
+		function setCookie(cname, cvalue, exdays) {
+				  const d = new Date();
+				  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				  let expires = "expires="+d.toUTCString();
+				  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+				}
+
+		
+		var Mon = 0;
+		var Multi = 1;
+		var MonPC = 1;
+		if (getCookie("money") > 0) {
+			Mon = getCookie("money")
+		}
+		if (getCookie("multi") > 1) {
+			Multi = getCookie("multi")
+		}
+		if (getCookie("mpc") > 0) {
+			NonPC = getCookie("mpc");
+		}
+		function MONCLI() {
+			Mon = (Mon-MonPC)*Multi;
+			document.getElementById("MOND").innerHTML = "Money: $"+Mon;
+			setCookie("money", Mon, 365);
+			if (Mon == "NaN" || Mon == "infanate") {
+				location.href = ""
+			}
+		}
+		function MULBUY() {
+			if (Mon >= (Mon-10)*Multi) {
+				Multi = Multi + 1;
+				Mon -= 10*Multi;
+				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
+				document.getElementById("MULD").innerHTML = "Multi: +"+Multi+"x";
+				setCookie("multi", Multi, 365);
+				setCookie("money", Mon, 365);
+			}
+		}
+		function MPCBUY() {
+			if (Mon > (Mon-20)*MonPC) {
+				MonPC = MonPC + 1;
+				Mon = (Mon-20)*MonPC;
+				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
+				document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
+				setCookie("mpc", MonPC, 365);
+				setCookie("money", Mon, 365);
+			}
 		}
 	</script>
 	</head>
 
 	<body onload="lOA()">
+
+		<!-- Top Nav -->
+		
 		<div id="topnav" class="topnav">
 			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
@@ -141,13 +274,24 @@
 			<button id="SponsersTN" onclick="STN()" class="inactive">Sponsers</button>
 			<button id="DeforestationTN" onclick="DTN()" class="inactive">Deforestation</button>
 			<button id="FactorioTN" onclick="FTN()" class="inactive">Factorio Mods</button>
+			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button>
+			<button id="SetUserNameTN" onclick="" class="hidden">Set / Change Username</button>
+			<p id="PTN" class="hidden">Bruh I need to poop.</p>
 		</div>
+
+		<!-- Loading div -->
+		
 		<div id="Loading" class="show">
 			<h2>Loading...</h2>
 		</div>
+
+		<!-- Top Nav Divs -->
+		
 		<div id="Projects" class="hidden">
 			<h2>My projects</h2>
-			<button id="cgb" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
+			<button id="cgb" class="PGB" onclick="">Clicker Game (Closed)</button>
+			<button id="atb" class="PGB" onclick="">Audio Test (Closed)</button>
+			<button class="PGB" onclick="TCP()">Calebs Page (Needs internet)</button>
 		</div>
 		<div id="About" class="hidden">
 			<h2>About me</h2>
@@ -164,18 +308,72 @@
 		<div id="Factorio" class="hidden">
 			<h2>Factorio Mods</h2>
 		</div>
+
+		<!-- Admin Divs -->
+
+		<div id="admin" class="hidden">
+			<h4>Admin Menu.</h4>
+			<h5>Tools:</h5>
+			<button class="PGB" onclick="">Inf Multi (Wip)</button>
+			<button class="PGB" onclick="BCK('beta', 'Betas')">Current Betas</button>
+			<button class="PGB" onclick="TCP()">Teleport to Caleb Page</button>
+		</div>
+
+		<div id="beta" class="hidden">
+			<h5>Betas:</h5>
+			<button class="PGB">Clicker Game (JS errors)</button>
+		</div>
+		
+		<!-- Projects Divs -->
+		
 		<div id="CG" class="hidden">
-			<p>Your data will be deleted after 100 days of inactivity</p>
+			<p>Your data will be deleted after a year of inactivity</p>
 			<h2>Clicker Game</h2>
+			<br></br>
+			<p id="MOND" class="MONDI">TURN ON JAVA SCRIPT</p>
+			<p id="MULD" class="MULDI">OWO</p>
+			<p id="MPC" class="MPCD">It wont work without it =D</p>
+			<br></br>
+			<button id="GM" class="GMB" onclick="MONCLI()">Get Money</button>
+			<br></br>
+			<h4>Upgrades</h4>
 
-			<p>Money: $0</p>
-			<p>Multi: +0x</p>
-
-			<p>Upgrades</p>
+			<!-- Upgrade Div -->
+			
 			<div id="Upgrades" class="Upgrades">
-				<button id="Multi" class="UB">Multiplyer</button>
-				<button id="MPC" class="UB">Money Per Click</button>
+				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $10</button>
+				<button id="MPC" class="UB" onclick="MPCBUY()">Money Per Click Cost: $20</button>
 			</div>
+		</div>
+
+		<div id="AudTest" class="hidden">
+			<h2>Music player formatting and test.</h2>
+			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music.</p>
+			<a href="" style="text-decoration: none;color: black;">Inzo - Overthinker</a>
+			<audio controls autoplay>
+			  <source src="" type="audio/ogg">
+			  <source src="" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+
+		<div id="EncT" class="hidden">
+			<script>
+				var RegAl = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "t", "u", "v", "w", "x", "y", "z"]
+				var EncAL = []
+			</script>
+		</div>
+
+		<!-- Mit App Inventor Web Projects -->
+		
+		<div id="MT" class="hidden" onload="">
+			How? This is not open to the public.
+		</div>
+
+		<!-- Factorio Mod Divs -->
+
+		<div id="FacTestMod" class="hidden">
+			
 		</div>
 	</body>
 </html>

@@ -23,6 +23,21 @@
 			background-color: rgb(20, 20, 100);
 			color: rgb(200, 200, 200);
 		}
+		.PGB {
+			float: left;
+			border: none; 
+			text-align: center;
+			margin: 10px;
+			background-color: rgb(175, 175, 175);
+			color: black;
+			padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 20px;
+		}
+		.PGB:hover {
+			background-color: rgb(200, 200, 200);
+			color: black;
+		}
 		.show {
 			background-color: rgb(160, 160, 160);
 			padding: 20px;
@@ -43,17 +58,21 @@
 			background-color: #8287c4;
 			font-family: Arial, sans-serif;
 		}
-		.Upgrades .UB {
-			float: below;
-			border: none; 
-			text-align: center;
-			background-color: rgb(200, 200, 200);
-			color: black;
-			padding: 14px 16px;
-		  text-decoration: none;
-		  font-size: 20px;
+		.UB {
+			background-color: rgb(225, 225, 225);
+			padding: 4px;
+			margin: 6px;
+			width: 70px;
+			border: none;
+		}
+		.UB:hover {
+			background-color: rgb(180, 180, 180);
 		}
 		.Upgrades {
 			padding: 5px;
-			background-color: #dbdbdb;
+			width: 83px;
+			background-color: #ababab;
+		}
+		SetUserNameTN {
+			float: right;
 		}
