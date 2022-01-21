@@ -1,17 +1,38 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
-<link rel="icon" href="https://zak.jasonmccall.com/CalebProj/favicon.png">
-<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-  
-<h1 style="background-color:DodgerBlue;">dog</h1>
-
-<p style="background-color:Tomato;">welcom:)</p>
-<p class="className"></p>
-
-<h1> 
+	
+	<h1>hello friend :)</h1>
+  <p>lets play a game. rule 1 dont cheat. rule 2 no skiping words last but not least do Not!... be a sore loser</p>
+	
+	<div id="race" class="show">
+		<script>
+			var q = 1;
+			var timer = 0;
+			function changeQuestion() {
+				
+			}
+			function Start() {
+				document.getElementById("Start").classList.add("hidden");
+				document.getElementById("Start").classList.remove("StartButton");
+				document.getElementById("game").classList.remove("hidden");
+				document.getElementById("game").classList.add("show");
+			}
+		</script>
+		<button id="Start" class="StartButton" onclick="Start()">Start!</button>
+		<div id="game" class="hidden">
+			<p id="timer" class="timer"></p>
+			<h2 id="QN" class="QN"></h2>
+			<h3 id="Des" class="Dec"></h3>
+			<button id="Next" class="NextButton" onclick="changeQuestion()">Next Question</button>
+		</div>
+	</div>
 </body>
+	
 </html>

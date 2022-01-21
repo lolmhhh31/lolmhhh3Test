@@ -1,3 +1,11 @@
 .className  {
 	background-color: tomato;
 }
+
+.hidden {
+	display:none;
+}
+.show {
+	background-color: rgb(200, 200, 200);
+	display: block;
+}

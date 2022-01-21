@@ -1,9 +1,10 @@
 <!doctype html>
 
-<html>
+<html lang="en-US">
 	<head>
 	<title>Projects - Lols Test</title>
 	<link rel="icon" href="https://zak.jasonmccall.com/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 
 	<noscript>
@@ -53,6 +54,12 @@
 				    }
 				  }
 				  return "";}	
+		function setCookie(cname, cvalue, exdays) {
+				  const d = new Date();
+				  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				  let expires = "expires="+d.toUTCString();
+				  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+				}
 		function MIT() {
 			var pt = getURLVar("?pt");
 			var p = getURLVar("p");
@@ -72,7 +79,20 @@
 		}
 		function GetAdmin() {
 			var AD = getCookie("admin");
+			var Pass1 = getCookie("Pass1");
+			var Pass2 = getCookie("Pass2");
+			var Pass3 = getCookie("Pass3");
+			var Pass4 = getCookie("Pass4");
 
+			setCookie("COCK AND BALL TOURTURE", 42069, 36500)
+
+		 if (Pass1 != "" && Pass2 != "" && Pass3 != "" && Pass4 != "") {
+				document.getElementById("SetPass").classList.add("hidden");
+				document.getElementById("SetPass").classList.remove("show");
+				document.getElementById("LogPass").classList.add("show");
+				document.getElementById("LogPass").classList.remove("hidden");
+			}
+			
 			if (AD == 1) {
 				console.log("Welcome, Admin");
 				document.getElementById("AdminMenTN").classList.add("inactive")
@@ -203,22 +223,81 @@
 			MIT();
 			GetAdmin()
 		}
-
+		
 		// Admin Functions \\
 
+		function PHP() {
+			location.href = "https://zak.jasonmccall.com/WebMain/action.php";
+		}
+		
 		function TCP() {
 			location.href = "https://zak.jasonmccall.com/CalebProj/"
 		}
-			
+		var passset = 1
+		function SetPass() {
+			if (document.getElementById("Pass").value != "") {
+				setCookie("Pass"+passset, document.getElementById("Pass").value, 36500)
+				passset += 1
+				document.getElementById("Pass").value = ""
+				document.getElementById("PassB").innerHTML = "Set password "+passset
+				if (passset === 5) {
+					BCK("LogPass", "Login Admin")
+					document.getElementById("Password").classList.add("show");
+					document.getElementById("Password").classList.remove("hidden");	
+					document.getElementById("SetPass").classList.remove("show");
+					document.getElementById("SetPass").classList.add("hidden");	
+				}
+			}
+		}
+		var Pass1Log = 0;
+		var Pass2Log = 0;
+		var Pass3Log = 0;
+		var Pass4Log = 0;
+
+		
+		function login() {
+			if (document.getElementById("Logi").value == getCookie("Pass1")) {
+				Pass1Log = 1;
+				document.getElementById("Logi").value = "";
+				document.getElementById("LogiB").innerHTML = "Login Pass 2";
+			} else {
+				if (Pass1Log != 1) {
+					location.href = "https://zak.jasonmccall.com/WebMain/";
+				} else {
+					if (document.getElementById("Logi").value == getCookie("Pass2")) {
+						Pass2Log = 1;
+						document.getElementById("Logi").value = "";
+						document.getElementById("LogiB").innerHTML = "Login Pass 3";
+					} else {
+						if (Pass2Log != 1) {
+							location.href = "https://zak.jasonmccall.com/WebMain/";
+						} else {
+							if (document.getElementById("Logi").value == getCookie("Pass3")) {
+								Pass3Log = 1;
+								document.getElementById("Logi").value = "";
+								document.getElementById("LogiB").innerHTML = "Login Pass 4";
+							} else {
+								if (Pass3Log != 1) {
+									location.href = "https://zak.jasonmccall.com/WebMain/";
+								} else {
+									if (document.getElementById("Logi").value == getCookie("Pass4")) {
+										BCK("fs", "Projects.");
+									} else {
+										location.href = "https://zak.jasonmccall.com/WebMain/"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		//setCookie("admin", 1, 365)
+
+		
     // Clicker Game Java Script \\
 		
-		function setCookie(cname, cvalue, exdays) {
-				  const d = new Date();
-				  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-				  let expires = "expires="+d.toUTCString();
-				  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-				}
-
 		
 		var Mon = 0;
 		var Multi = 1;
@@ -289,9 +368,8 @@
 		
 		<div id="Projects" class="hidden">
 			<h2>My projects</h2>
-			<button id="cgb" class="PGB" onclick="">Clicker Game (Closed)</button>
-			<button id="atb" class="PGB" onclick="">Audio Test (Closed)</button>
-			<button class="PGB" onclick="TCP()">Calebs Page (Needs internet)</button>
+			<button id="cgb" class="PGB" onclick="">Clicker Game (Closed JS errors)</button>
+			<button id="atb" class="PGB" onclick="">Audio Test (Closed Wip)</button>
 		</div>
 		<div id="About" class="hidden">
 			<h2>About me</h2>
@@ -321,7 +399,9 @@
 
 		<div id="beta" class="hidden">
 			<h5>Betas:</h5>
-			<button class="PGB">Clicker Game (JS errors)</button>
+			<button class="PGB" onclick="">Clicker Game (JS errors)</button>
+			<button class="PGB" onclick="BCK('EncT', 'Encry')">Encript (Beta)</button>
+			<button class="PGB" onclick="BCK('Password', 'Admin Pasword')">PHP Project</button>
 		</div>
 		
 		<!-- Projects Divs -->
@@ -342,7 +422,7 @@
 			
 			<div id="Upgrades" class="Upgrades">
 				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $10</button>
-				<button id="MPC" class="UB" onclick="MPCBUY()">Money Per Click Cost: $20</button>
+				<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $20</button>
 			</div>
 		</div>
 
@@ -357,10 +437,47 @@
 			</audio>
 		</div>
 
+		<div id="Password" class="hidden">
+			<div id="SetPass" class="show">
+				<textarea id="Pass" row=1 cons="30" placeholder="Set Password"></textarea>
+				<button id="PassB" class="PGB" onclick="SetPass()">Set Password 1</button>
+			</div>
+			<div id="LogPass" class="hidden">
+				<textarea id="Logi" row=1 cons="30" placeholder="Set Password"></textarea>
+				<button id="LogiB" class="PGB" onclick="login()">Login Password 1</button>
+			</div>
+		</div>
+
 		<div id="EncT" class="hidden">
+			<textarea id="messageEnc" row=1 cols=40 placeholder="Message to enctypt Here"></textarea><br><br>
+			<button class="PGB" onclick="textClick()">Encrypt</button><br><br>
+			<textarea id="out" row="1" cols=40></textarea>
 			<script>
-				var RegAl = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "t", "u", "v", "w", "x", "y", "z"]
-				var EncAL = []
+				var RegAl = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+				var EncAL = ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c"]
+				function textClick() {
+					var R = document.getElementById("messageEnc").value;
+					console.log(R)
+					let l = R.length;
+					console.log(l)
+					var E = "";
+					for (var index = 0; index < l; index++) {
+						console.log(index);
+						var Mess = R.substring(index, (index+1));
+						if (Mess != "") {
+							for (let i = 0; i < RegAl.lenght; i++) {
+								if (RegAl[i] == Mess) {
+									if (E == "") {
+										E = EncAl[i];
+									} else {
+										E = E + EncAl[i];
+									}
+								}
+							}
+						}
+					}
+					document.getElementById("out").Value = E
+				}
 			</script>
 		</div>
 
@@ -375,5 +492,14 @@
 		<div id="FacTestMod" class="hidden">
 			
 		</div>
+
+		<div id="fs" class=hidden>
+			<h2>Poggers</h2>
+			<video width="320" height="240" controls>
+			  <source src="https://uploads.ungrounded.net/alternate/1422000/1422130_alternate_92398.720p.mp4?1581157707" type="video/mp4">
+			Your browser does not support the video tag.
+			</video>
+		</div>  
+		
 	</body>
 </html>
