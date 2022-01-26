@@ -97,6 +97,11 @@
 				console.log("Welcome, Admin");
 				document.getElementById("AdminMenTN").classList.add("inactive")
 				document.getElementById("AdminMenTN").classList.remove("hidden")
+			} else {
+				var Elemets = document.getElementsByClassName("img");
+				for (let i = 0; i < Elemets.length; i++) {
+					Elemets[i].src = ""
+				}
 			}
 		}
 		function PTN() {
@@ -138,31 +143,18 @@
 			document.getElementById("Updates").classList.remove("hidden");
 			document.title = "Updates - Lols Test"
 		}
-		function STN() {
-			document.getElementById("SponsersTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("SponsersTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Sponsers").classList.add("show");
-			document.getElementById("Sponsers").classList.remove("hidden");
-			document.title = "Sponsers - Lols Test";
-		}
 		function DTN() {
-			document.getElementById("DeforestationTN").classList.remove("inactive");
+			document.getElementById("EmployerTN").classList.remove("inactive");
 			var x = document.getElementsByClassName("active");
 			x[0].classList.add("inactive");
 			x[0].classList.remove("active");
-			document.getElementById("DeforestationTN").classList.add("active");
+			document.getElementById("EmployerTN").classList.add("active");
 			var y = document.getElementsByClassName("show");
 			y[0].classList.add("hidden");
 			y[0].classList.remove("show");
-			document.getElementById("Deforestation").classList.add("show");
-			document.getElementById("Deforestation").classList.remove("hidden");
-			document.title = "Deforestation - Lols Test"
+			document.getElementById("Employ").classList.add("show");
+			document.getElementById("Employ").classList.remove("hidden");
+			document.title = "Employer Only Page - Lols Test"
 		}
 		function FTN() {
 			document.getElementById("FactorioTN").classList.remove("inactive");
@@ -208,23 +200,33 @@
 			if (tab == "uptates") {
 				UTN()
 			}
-			if (tab == "sponsers") {
-				STN()
-			}
-			if (tab == "deforest") {
-				DTN()
-			}
 			if (tab == "factorio") {
 				FTN()
 			}
 			if (tab == "cale") {
 				location.href = "https://zak.jasonmccall.com/CalebProj/"
 			}
+			if (tab == "employ") {
+				BCK("Employ", "Employer Only Page")
+				document.getElementById("EmployerTN").classList.add("active")
+				document.getElementById("EmployerTN").classList.remove("hidden")
+				document.getElementById("ProjectsTN").classList.add("inactive")
+				document.getElementById("ProjectsTN").classList.remove("active")
+				setCookie("Emp", 1, 30)
+			}
 			MIT();
 			GetAdmin()
 		}
 		
 		// Admin Functions \\
+
+		function Reset() {
+			var Elemetss = document.getElementsByClassName("img");
+			for (let index = 0; index < Elemetss.length; index++) {
+				Elemetss[i].src = "";
+			}
+			location.href = "";
+		}
 
 		function PHP() {
 			location.href = "https://zak.jasonmccall.com/WebMain/action.php";
@@ -348,14 +350,14 @@
 		
 		<div id="topnav" class="topnav">
 			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
+			<button id="BlogTN" onclick="BCK('Blogs', 'Blogs')" class="hidden">Make and Read Blogs!</button>
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
 			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
-			<button id="SponsersTN" onclick="STN()" class="inactive">Sponsers</button>
-			<button id="DeforestationTN" onclick="DTN()" class="inactive">Deforestation</button>
 			<button id="FactorioTN" onclick="FTN()" class="inactive">Factorio Mods</button>
+			<button id="EmployerTN" onclick="DTN()" class="hidden">Employer</button>
 			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button>
 			<button id="SetUserNameTN" onclick="" class="hidden">Set / Change Username</button>
-			<p id="PTN" class="hidden">Bruh I need to poop.</p>
+			<p id="PTN" class="hidden"></p>
 		</div>
 
 		<!-- Loading div -->
@@ -368,23 +370,34 @@
 		
 		<div id="Projects" class="hidden">
 			<h2>My projects</h2>
-			<button id="cgb" class="PGB" onclick="">Clicker Game (Closed JS errors)</button>
-			<button id="atb" class="PGB" onclick="">Audio Test (Closed Wip)</button>
+			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
+			<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
 		</div>
 		<div id="About" class="hidden">
-			<h2>About me</h2>
+			<h2>About me</h2><br><br>
+			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA.</p>
 		</div>
 		<div id="Updates" class="hidden">
 			<h2>Updates</h2>
-		</div>
-		<div id="Sponsers" class="hidden">
-			<h2>Sponsers</h2>
-		</div>
-		<div id="Deforestation" class="hidden">
-			<h2>Deforestation</h2>
+			<dl>
+				<dt>1.3 (Current)</dt>
+				<dd>- All on one HTML page</dd>
+				<dd>- Adding content to all Tabs</dd>
+				<dd>- Clicker Game Bug fixes</dd>
+				<dt>1.4 (Future)</dt>
+				<dd>- Finish bug fixing with Clicker Game</dd>
+			</dl>
 		</div>
 		<div id="Factorio" class="hidden">
 			<h2>Factorio Mods</h2>
+		</div>
+		<div id="Employ" class="hidden">
+			<h2>Employer Only Page</h2>
+			<p>This page will go more in depth about my self. <br> You can contact me at: weeeeeeee152@gmail.com <br> I know 4 languages. The languages I know are, HTML, CSS, Javascript, and Roblox Lua. I am learning PHP to make a bloging page. <br> If you want to see may Website are a normal user please Click this button: <button id="NorSee" class="EMPB">Here</button> <br> If you would like to see my Roblox Lua projects please Click these buttons: <button id="CoinSim" class="EMPB">Coin Simulator</button></p>
+		</div>
+
+		<div id="Blogs" class="">
+			
 		</div>
 
 		<!-- Admin Divs -->
@@ -399,8 +412,9 @@
 
 		<div id="beta" class="hidden">
 			<h5>Betas:</h5>
-			<button class="PGB" onclick="">Clicker Game (JS errors)</button>
+			<button class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game (JS errors)</button>
 			<button class="PGB" onclick="BCK('EncT', 'Encry')">Encript (Beta)</button>
+			<button class="PGB" onclick="BCK('Blogs', 'Blogs')">Blogs</button>
 			<button class="PGB" onclick="BCK('Password', 'Admin Pasword')">PHP Project</button>
 		</div>
 		
@@ -429,10 +443,11 @@
 		<div id="AudTest" class="hidden">
 			<h2>Music player formatting and test.</h2>
 			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music.</p>
-			<a href="" style="text-decoration: none;color: black;">Inzo - Overthinker</a>
+			<a href="https://www.youtube.com/watch?v=luQSQuCHtcI" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">Inzo - Overthinker (Link)</a>
+			<br></br>
 			<audio controls autoplay>
-			  <source src="" type="audio/ogg">
-			  <source src="" type="audio/mpeg">
+			  <source src="Audio/IOT/" type="audio/ogg">
+			  <source src="Audio/IOT/" type="audio/mpeg">
 				Your browser does not support the audio element.
 			</audio>
 		</div>
@@ -494,9 +509,17 @@
 		</div>
 
 		<div id="fs" class=hidden>
-			<h2>Poggers</h2>
-			<video width="320" height="240" controls>
-			  
+			<h2>Bobux</h2>
+			<button class="PGB" id="Reset" onclick="Reset()">Reset</button>
+			<br><br><br><br><br><br><br><br><br><br><br><br>
+			<img class="img" src="https://th.bing.com/th/id/R.35f21f5bee9f69427449ff32620367e8?rik=FD2AuGImj6TFLA&riu=http%3a%2f%2fi.imgur.com%2fpIFN6aV.jpg&ehk=pRSe6pNUSUruoFQ6T6I1QwSFFvwF3vf3DkjBKCj2zQg%3d&risl=&pid=ImgRaw&r=0" alt="Italian Trulli" style="width:500px;height:600px;">
+				<img class="img" src="https://th.bing.com/th/id/R.628e62b9b8f1248493fa0bb66f24702d?rik=o5196U3F07wcJA&riu=http%3a%2f%2fi.imgur.com%2fVztrv8m.jpg&ehk=zL2Waj5tVm8VFv8a6h1uz9kWbPuXhKfSP3GvP%2b6EhHo%3d&risl=&pid=ImgRaw&r=0" alt="Italian Trulli" style="width:500px;height:600px;">
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<img class="img" src="https://th.bing.com/th/id/OIP.DYufgUiUCb_IYO-ADQ0N1QHaKZ?pid=ImgDet&rs=1" alt="Italian Trulli" style="width:500px;height:600px;">
+					<img src="https://th.bing.com/th/id/OIP.noPvTudY08pj-qXkQg-pDQHaKe?pid=ImgDet&rs=1" alt="Italian Trulli" style="width:500px;height:600px;">
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<img src="https://th.bing.com/th/id/R.5364af8e365ca8b7378cc62b1c4ef3b6?rik=9VcUZj0%2fOYbtmQ&riu=http%3a%2f%2fimages.luscious.net%2f124%2flusciousnet_catgirl-hentai_1474224002.jpg&ehk=MiLpmeVUiVePE3rWs%2bZ5vYrBkLJ1YFaTuq0mLETmIXE%3d&risl=&pid=ImgRaw&r=0" alt="Italian Trulli" style="width:500px;height:600px;">
+				<!-- <img src="" alt="Italian Trulli" style="width:500px;height:600px;"> -->
 		</div>  
 		
 	</body>

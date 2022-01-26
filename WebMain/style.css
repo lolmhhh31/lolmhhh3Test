@@ -76,3 +76,11 @@
 		SetUserNameTN {
 			float: right;
 		}
+		.EMPB {
+			background-color: rgb(225, 225, 225);
+			border: round;
+		}
+		.EMPB:hover {
+			background-color: rgb(215, 215, 215);
+			border: round;
+		}
