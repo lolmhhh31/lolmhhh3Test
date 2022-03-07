@@ -367,7 +367,6 @@
 			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
 			<button id="BlogTN" onclick="BCK('Blogs', 'Blogs')" class="hidden">Make and Read Blogs!</button>
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
-			<button id="CodeOrgTN" onclick="BCK('CO', 'Code.org Project')" class="inactive">Code.org File Upload</button>
 			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
 			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button> 
 			<button id="SetUserNameTN" onclick="" class="hidden">Set / Change Username</button>
@@ -390,17 +389,6 @@
 			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 			<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
 		</div>
-		<div id="CO" class="hidden">
-			<h2>Upload your Cover Image for Code.org</h2>
-			<br><br>
-			<a href="https://studio.code.org/projects/applab/cCIM2EQtf7xKjJz9okwDF7xzzemFSbSVS2VyGTdFUP0" class="PGB">Link</a>
-			<br><br>
-			<form action="upload.php" method="post" enctype="multipart/form-data">
-			  Select image to upload:
-			  <input type="file" name="fileToUpload" id="fileToUpload">
-			  <input type="submit" value="Upload Image" name="submit">
-			</form>
-		</div>
 		<div id="About" class="hidden">
 			<h2>About me</h2><br><br>
 			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA.</p>
@@ -416,11 +404,6 @@
 				<dt>1.4 (Future)</dt>
 				<dd>- Finish bug fixing with Clicker Game</dd>
 			</dl>
-		</div>
-		<div id="Blogs" class="hidden">
-			<?php
-				echo "Test";
-			?>
 		</div>
 
 		<!-- Admin Divs -->

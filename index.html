@@ -8,15 +8,12 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/10.32.0/js/jquery.fileupload.min.js"></script>
 
 	<noscript>
-		<div id="warning" class="warning"><h3>Enable JavaScript. Not thing will function properly</h3></div>
+		<div id="warning" class="warning"><h3>You better turn on Javascript, Now. Dont make me.</h3></div>
 	</noscript>
 		
-		<!-- Top Nav Java Script -->
-
-		<!-- Vars ?pt=Projects&p=MT -->
+	<!-- Loading JS -->
 		
 	<script>
 		function getURLVar(cname) {
@@ -106,6 +103,11 @@
 				}
 			}
 		}
+	</script>
+
+	<!-- Top Navigation Bar JS -->
+		
+	<script>
 		function myFunction() {
 		  var x = document.getElementById("topnav");
 		  if (x.className === "topnav") {
@@ -227,9 +229,11 @@
 			MIT();
 			GetAdmin()
 		}
+	</script>
 		
-		// Admin Functions \\
-
+		<!-- Admin JS -->
+		
+	<script>
 		function Reset() {
 			var Elemetss = document.getElementsByClassName("img");
 			for (let index = 0; index < Elemetss.length; index++) {
@@ -306,9 +310,11 @@
 		}
 
 		//setCookie("admin", 1, 365)
-
+	</script>
 		
-    // Clicker Game Java Script \\
+    <!-- Clicker Game JS -->
+
+	<script>
 		
 		
 		var Mon = 0;
@@ -323,43 +329,58 @@
 		if (getCookie("mpc") > 0) {
 			NonPC = getCookie("mpc");
 		}
+		if (getCookie("STRS") == 1) {
+			setCookie("money", 0, 365);
+			setCookie("multi", 0, 365);
+			setCookie("mpc", 0, 365);
+			
+			Mon = 0;
+			Multi = 1;
+			MonPC = 1;
+			setCookie("STRS", 0, 365);
+		}
 		function MONCLI() {
 			Mon = (Mon+MonPC)*Multi;
 			document.getElementById("MOND").innerHTML = "Money: $"+Mon;
 			setCookie("money", Mon, 365);
 			if (Mon == "NaN" || Mon == "Infinity") {
 				Mon = 0
-				setCookine("money", 0, 365)
-				location.href = ""
+				setCookie("money", 0, 365);
+				setCookie("multi", 0, 365);
+				setCookie("mpc", 0, 365);
+				setCookie("STRS", 1, 365);
+				location.href = "https://zak.jasonmccall.com/?StatsReset=1";
 			}
 		}
 		function MULBUY() {
 			if (Mon >= 10*Multi) {
+				Mon = Mon-10*Multi;
 				Multi = Multi + 1;
-				Mon = Mon+10*-Multi;
 				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-				document.getElementById("MULD").innerHTML = "Multi: +"+Multi+"x";
+				document.getElementById("MULD").innerHTML = "Multi: +"+(Multi-1)+"x";
 				setCookie("multi", Multi, 365);
 				setCookie("money", Mon, 365);
 			}
 		}
 		function MPCBUY() {
-			if (Mon > 20*MonPC) {
+			if (Mon >= 20*MonPC) {
+				Mon = Mon-20*MonPC;
 				MonPC = MonPC + 1;
-				Mon = (Mon-20)*MonPC;
 				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
 				document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
+				document.getElementById("MPCB").innerHTML = "Money Per Click Cost: $"+20*MonPC;
 				setCookie("mpc", MonPC, 365);
 				setCookie("money", Mon, 365);
 			}
 		}
 	</script>
+
 	</head>
 
 	<body onload="lOA()">
 
-		<!-- Top Nav -->
-		
+		<!-- Top Navigation -->
+
 		<div id="topnav" class="topnav">
 			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
@@ -377,27 +398,30 @@
 			<h2>Loading...</h2>
 		</div>
 
-		<!-- Top Nav Divs -->
+		<!-- Top Navigation Divs -->
 		
 		<div id="Projects" class="hidden">
 			<h2>My projects</h2>
 			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 			<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
+			<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
 		</div>
+		
 		<div id="About" class="hidden">
 			<h2>About me</h2><br><br>
 			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA.</p>
 		</div>
+		
 		<div id="Updates" class="hidden">
 			<h2>Updates</h2>
 			<dl>
-				<dt>1.3 (Current)</dt>
+				<dt>BUILD 1.3 (Current)</dt>
 				<dd>- All on one HTML page</dd>
 				<dd>- Adding content to all Tabs</dd>
 				<dd>- Clicker Game Bug fixes</dd>
 				<dd>- Responsive TopNav</dd>
-				<dt>1.4 (Future)</dt>
-				<dd>- Finish bug fixing with Clicker Game</dd>
+				<dt>BUILD 1.4 (Future)</dt>
+				<dd>- Finish bug fix with Clicker Game</dd>
 			</dl>
 		</div>
 
@@ -406,7 +430,6 @@
 		<div id="admin" class="hidden">
 			<h4>Admin Menu.</h4>
 			<h5>Tools:</h5>
-			<button class="PGB" onclick="">Inf Multi (Wip)</button>
 			<button class="PGB" onclick="BCK('beta', 'Betas')">Current Betas</button>
 			<button class="PGB" onclick="TCP()">Teleport to Caleb Page</button>
 		</div>
@@ -427,12 +450,19 @@
 		
 		<div id="CG" class="hidden">
 			<p>Your data will be deleted after a year of inactivity</p>
+			<p id="ERD"></p>
 			<h2>Clicker Game</h2>
 			<br></br>
-			<p id="MOND" class="MONDI">TURN ON JAVA SCRIPT</p>
-			<p id="MULD" class="MULDI">OWO</p>
-			<p id="MPC" class="MPCD">It wont work without it =D</p>
+
+			<!-- Value Display -->
+			
+			<p id="MOND" class="MONDI">Loading...</p>
+			<p id="MULD" class="MULDI">Loading...</p>
+			<p id="MPC" class="MPCD">Loading...</p>
 			<br></br>
+
+			<!-- Get money Button -->
+			
 			<button id="GM" class="GMB" onclick="MONCLI()">Get Money</button>
 			<br></br>
 			<h4>Upgrades</h4>
