@@ -1,5 +1,8 @@
 <!doctype html>
 
+<!-- Get off source page loser. -->
+<!-- All code below is under copywrite, You can not use any of it unless you have permisstion from me. -->
+
 <html lang="en-US">
 	<head>
 	<title>Projects - Lols Test</title>
@@ -16,6 +19,19 @@
 	<!-- Loading JS -->
 		
 	<script>
+		// location.href = "https://zak.jasonmccall.com/Mantinace"
+		function CK(showDiv) {
+			document.getElementById(showDiv).classList.add("show", "warning");
+			document.getElementById(showDiv).classList.remove("hidden");
+		}
+		if (getCookie("Cons") != "") {
+			if (getURLVar("?d") == "") {
+				location.href = "https://Counter.lolmhhh3.repl.co?f=zjmc"+location.search;
+				CK("TA");
+			}
+		} else {
+			
+		}
 		function getURLVar(cname) {
 		  let name = cname + "=";
 		  let decodedCookie = location.search;
@@ -39,6 +55,10 @@
 			document.getElementById(showDiv).classList.add("show");
 			document.getElementById(showDiv).classList.remove("hidden");
 			document.title = PN+" - Lols Test"
+		}
+		function ACK(showDiv) {
+			document.getElementById(showDiv).classList.remove("show");
+			document.getElementById(showDiv).classList.add("hidden");
 		}
 		function getCookie(cname) {
 				  let name = cname + "=";
@@ -79,18 +99,6 @@
 		}
 		function GetAdmin() {
 			var AD = getCookie("admin");
-			var Pass1 = getCookie("Pass1");
-			var Pass2 = getCookie("Pass2");
-			var Pass3 = getCookie("Pass3");
-			var Pass4 = getCookie("Pass4");
-
-
-		 if (Pass1 != "" && Pass2 != "" && Pass3 != "" && Pass4 != "") {
-				document.getElementById("SetPass").classList.add("hidden");
-				document.getElementById("SetPass").classList.remove("show");
-				document.getElementById("LogPass").classList.add("show");
-				document.getElementById("LogPass").classList.remove("hidden");
-			}
 			
 			if (AD == 1) {
 				console.log("Welcome, Admin");
@@ -102,12 +110,14 @@
 					Elemetss[index].src = "";
 				}
 			}
+			
 		}
 	</script>
 
 	<!-- Top Navigation Bar JS -->
 		
 	<script>
+		var all = ""
 		function myFunction() {
 		  var x = document.getElementById("topnav");
 		  if (x.className === "topnav") {
@@ -195,13 +205,14 @@
 			document.title = "admin - Lols Test"
 		}
 		function loaded() {
-		document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-		document.getElementById("MULD").innerHTML = "Multi: +"+(Multi-1)+"x";
-		document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
+		
 	}
 		function lOA() {
+			GetAdmin();
+			clickerGameLoad();
 			loaded();
 			var tab = getURLVar("?tab");
+			all = all + " tab" + tab + ","
 			console.log(tab)
 			if (tab == "projects" || tab == "undefined" || tab == "") {
 				PTN()
@@ -227,11 +238,11 @@
 				setCookie("Emp", 1, 30)
 			}
 			MIT();
-			GetAdmin()
+			
 		}
 	</script>
 		
-		<!-- Admin JS -->
+	<!-- Admin JS -->
 		
 	<script>
 		function Reset() {
@@ -249,70 +260,10 @@
 		function TCP() {
 			location.href = "https://zak.jasonmccall.com/CalebProj/"
 		}
-		var passset = 1
-		function SetPass() {
-			if (document.getElementById("Pass").value != "") {
-				setCookie("Pass"+passset, document.getElementById("Pass").value, 36500)
-				passset += 1
-				document.getElementById("Pass").value = ""
-				document.getElementById("PassB").innerHTML = "Set password "+passset
-				if (passset === 5) {
-					BCK("LogPass", "Login Admin")
-					document.getElementById("Password").classList.add("show");
-					document.getElementById("Password").classList.remove("hidden");	
-					document.getElementById("SetPass").classList.remove("show");
-					document.getElementById("SetPass").classList.add("hidden");	
-				}
-			}
-		}
-		var Pass1Log = 0;
-		var Pass2Log = 0;
-		var Pass3Log = 0;
-		var Pass4Log = 0;
-
-		
-		function login() {
-			if (document.getElementById("Logi").value == getCookie("Pass1")) {
-				Pass1Log = 1;
-				document.getElementById("Logi").value = "";
-				document.getElementById("LogiB").innerHTML = "Login Pass 2";
-			} else {
-				if (Pass1Log != 1) {
-					location.href = "https://zak.jasonmccall.com/WebMain/";
-				} else {
-					if (document.getElementById("Logi").value == getCookie("Pass2")) {
-						Pass2Log = 1;
-						document.getElementById("Logi").value = "";
-						document.getElementById("LogiB").innerHTML = "Login Pass 3";
-					} else {
-						if (Pass2Log != 1) {
-							location.href = "https://zak.jasonmccall.com/WebMain/";
-						} else {
-							if (document.getElementById("Logi").value == getCookie("Pass3")) {
-								Pass3Log = 1;
-								document.getElementById("Logi").value = "";
-								document.getElementById("LogiB").innerHTML = "Login Pass 4";
-							} else {
-								if (Pass3Log != 1) {
-									location.href = "https://zak.jasonmccall.com/WebMain/";
-								} else {
-									if (document.getElementById("Logi").value == getCookie("Pass4")) {
-										BCK("fs", "Projects.");
-									} else {
-										location.href = "https://zak.jasonmccall.com/WebMain/"
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
 		//setCookie("admin", 1, 365)
 	</script>
 		
-    <!-- Clicker Game JS -->
+  <!-- Clicker Game JS -->
 
 	<script>
 		
@@ -339,12 +290,20 @@
 			MonPC = 1;
 			setCookie("STRS", 0, 365);
 		}
-		function MONCLI() {
-			Mon = (Mon+MonPC)*Multi;
-			document.getElementById("MOND").innerHTML = "Money: $"+Mon;
+		function changeText(id, text) {
+			if (text != 'NaN' && text != null && text != '' && id != 'NaN' && id != null && id != '') {
+				document.getElementById(id).innerHTML = text;
+			}	
+			console.log(id+" id");
+			console.log(text+" text");
+		}
+		function gm() {
+			Mon = MonPC * Multi + Mon;
+			console.log(Mon+" : "+MonPC * Multi)
 			setCookie("money", Mon, 365);
+			changeText("MOND", "Money: $"+Mon);
 			if (Mon == "NaN" || Mon == "Infinity") {
-				Mon = 0
+				Mon = 0;
 				setCookie("money", 0, 365);
 				setCookie("multi", 0, 365);
 				setCookie("mpc", 0, 365);
@@ -353,31 +312,38 @@
 			}
 		}
 		function MULBUY() {
-			if (Mon >= 10*Multi) {
-				Mon = Mon-10*Multi;
+			if (Mon >= (20 * Multi) * MonPC) {
+				Mon = Mon - (20 * Multi) * MonPC;
 				Multi = Multi + 1;
-				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-				document.getElementById("MULD").innerHTML = "Multi: +"+(Multi-1)+"x";
-				setCookie("multi", Multi, 365);
-				setCookie("money", Mon, 365);
+				changeText("MOND", "Money: $"+Mon);
+				changeText("MULD", "Multi: +"+(Multi-1)+"x");
+				changeText("Multi", "Multiplayer Cost: $"+(20 * Multi) * MonPC);
+				setCookie("multi", Multi, 365)
 			}
 		}
 		function MPCBUY() {
-			if (Mon >= 20*MonPC) {
-				Mon = Mon-20*MonPC;
+			if (Mon >= 40 * MonPC) {
+				Mon = Mon-(40*MonPC);
 				MonPC = MonPC + 1;
-				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-				document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
-				document.getElementById("MPCB").innerHTML = "Money Per Click Cost: $"+20*MonPC;
-				setCookie("mpc", MonPC, 365);
-				setCookie("money", Mon, 365);
+				changeText("MOND", "Money: $"+Mon);
+				changeText("MPC", "Money Per Click: "+MonPC);
+				changeText("MPCB", "Money Per Clicke Cost: $"+40*MonPC)
+				changeText("Multi", "Multiplayer Cost: $"+(20 * Multi) * MonPC);
+				setCookie("mpc", MonPC, 365)
 			}
 		}
+		function clickerGameLoad() {
+			changeText("MOND", "Money: $"+Mon);
+			changeText('MULD', 'Multi: +'+(Multi-1)+'x');
+			changeText('MPC', 'Money Per Click: '+MonPC);
+		}
 	</script>
-
+		
 	</head>
 
 	<body onload="lOA()">
+
+		<div id="TA" class="warning"><h3>Your accses has been loged thank you.</h3><br><button onclick="ACK('TA')">Close</button></div>
 
 		<!-- Top Navigation -->
 
@@ -395,7 +361,7 @@
 		<!-- Loading div -->
 		
 		<div id="Loading" class="show">
-			<h2>Loading...</h2>
+			<h2>Redirecting/Loading</h2>
 		</div>
 
 		<!-- Top Navigation Divs -->
@@ -409,19 +375,52 @@
 		
 		<div id="About" class="hidden">
 			<h2>About me</h2><br><br>
-			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA.</p>
+			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA. Currently I am learning and Looking for an internship for a small comapany for there website.</p>
 		</div>
 		
 		<div id="Updates" class="hidden">
 			<h2>Updates</h2>
 			<dl>
-				<dt>BUILD 1.3 (Current)</dt>
+				
+				<dt>BUILD 1.0 (Past)</dt>
+				<dd>- Added About Me</dd>
+				<dd>- Added Top Navigation Bar</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.1 (Past)</dt>
+				<dd>- Added Clicker Game</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.2 (Past)</dt>
+				<dd>- Clicker Game Update</dd>
+				<dd>- Music Project</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.3 (Past)</dt>
 				<dd>- All on one HTML page</dd>
 				<dd>- Adding content to all Tabs</dd>
 				<dd>- Clicker Game Bug fixes</dd>
 				<dd>- Responsive TopNav</dd>
-				<dt>BUILD 1.4 (Future)</dt>
+				<dd>- All HTML on one Page!</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.4 (Current)</dt>
 				<dd>- Finish bug fix with Clicker Game</dd>
+				<dd>- Work on Music Project (Has'nt been updated in forever!)</dd>
+				<dd>- Slight CSS Changes.</dd>
+
+				<br></br>
+
+				<dt>BUILD 1.5 (Future)</dt>
+				<dd>- Adding one project</dd>
+				<dd>- Adding More Music </dd>
+				<dd>- Possible CSS changes</dd>
+				<dd>- Clicker Game Upgrade</dd>
+				<dd>- Work on Music Project</dd>
 			</dl>
 		</div>
 
@@ -438,12 +437,15 @@
 			<h5>Betas:</h5>
 			<script>
 				function A() {
-					location.href = "/WebMain";
+					location.href = "https://zak.jasonmccall.com/WebMain/"
+				}
+				function B() {
+					location.href = "https://Counter.lolmhhh3.repl.co/read.php?f=zjmc";
 				}
 			</script>
 			<button class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game (JS errors)</button>
-			<button class="PGB" onclick="BCK('EncT', 'Encry')">Encript (Beta)</button>
-			<button class="PGB" onclick="A()">Test Webpage</button>
+			<button class="PGB" onclick="A()">Test Web</button>
+			<button class="PGB" onclick="B()">Users</button>
 		</div>
 		
 		<!-- Projects Divs -->
@@ -456,78 +458,48 @@
 
 			<!-- Value Display -->
 			
-			<p id="MOND" class="MONDI">Loading...</p>
-			<p id="MULD" class="MULDI">Loading...</p>
-			<p id="MPC" class="MPCD">Loading...</p>
+			<p onload="changeText('MONDI', 'Money: $'+Mon);" id="MOND" class="MONDI">Loading...</p>
+			<p onload="changeText('MULDI', 'Multi: +'+(Multi-1)+'x');" id="MULD" class="MULDI">Loading...</p>
+			<p onload="changeText('MPCD', 'Money Per Click: '+MonPC);" id="MPC" class="MPCD">Loading...</p>
 			<br></br>
 
 			<!-- Get money Button -->
 			
-			<button id="GM" class="GMB" onclick="MONCLI()">Get Money</button>
-			<br></br>
+			<button id="GM" class="PGB" onclick="gm()">Get Money</button>
+			<br></br><br></br><br></br>
 			<h4>Upgrades</h4>
 
 			<!-- Upgrade Div -->
 			
 			<div id="Upgrades" class="Upgrades">
-				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $10</button>
-				<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $20</button>
+				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $20</button>
+				<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $40</button>
 			</div>
 		</div>
 
 		<div id="AudTest" class="hidden">
 			<h2>Music player formatting and test.</h2>
-			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music.</p>
+			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music. <br><br> I did not compose or play any of this music, all rights go to thier respective owners.</p>
 			<a href="https://www.youtube.com/watch?v=luQSQuCHtcI" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">Inzo - Overthinker (Link)</a>
 			<br></br>
 			<audio controls autoplay>
-			  <source src="Audio/IOT/i.mp3" type="audio/mp3">
-				Your browser does not support the audio element.
+			  <source src="Audio/MUPJ/" type="audio/mp3">
+				Your browser does not MP3.
 			</audio>
-		</div>
-
-		<div id="Password" class="hidden">
-			<div id="SetPass" class="show">
-				<textarea id="Pass" row=1 cons="30" placeholder="Set Password"></textarea>
-				<button id="PassB" class="PGB" onclick="SetPass()">Set Password 1</button>
-			</div>
-			<div id="LogPass" class="hidden">
-				<textarea id="Logi" row=1 cons="30" placeholder="Login"></textarea>
-				<button id="LogiB" class="PGB" onclick="login()">Login Password 1</button>
-			</div>
-		</div>
-
-		<div id="EncT" class="hidden">
-			<textarea id="messageEnc" row=1 cols=40 placeholder="Message to enctypt Here"></textarea><br><br>
-			<button class="PGB" onclick="textClick()">Encrypt</button><br><br>
-			<textarea id="out" row="1" cols=40></textarea>
-			<script>
-				var RegAl = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-				var EncAL = ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c"]
-				function textClick() {
-					var R = document.getElementById("messageEnc").value;
-					console.log(R)
-					let l = R.length;
-					console.log(l)
-					var E = "";
-					for (var index = 0; index < l; index++) {
-						console.log(index);
-						var Mess = R.substring(index, (index+1));
-						if (Mess != "") {
-							for (let i = 0; i < RegAl.lenght; i++) {
-								if (RegAl[i] == Mess) {
-									if (E == "") {
-										E = EncAl[i];
-									} else {
-										E = E + EncAl[i];
-									}
-								}
-							}
-						}
-					}
-					document.getElementById("out").Value = E
-				}
-			</script>
+			<br><br><br>
+			<a href="https://www.youtube.com/watch?v=aBkTkxKDduc" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">C418 - Sweden - Minecraft Volume Alpha (Link)</a>
+			<br></br>
+			<audio controls autoplay>
+			  <source src="Audio/MUPJ/" type="audio/mp3">
+				Your browser does not MP3.
+			</audio>
+			<br><br><br>
+			<a href="https://www.youtube.com/watch?v=yHN0us0wsH0" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">[PD2] "Razormind" Assault (Link)</a>
+			<br></br>
+			<audio controls autoplay>
+			  <source src="Audio/MUPJ/" type="audio/mp3">
+				Your browser does not MP3.
+			</audio>
 		</div>
 
 		<!-- Mit App Inventor Web Projects -->
@@ -535,6 +507,6 @@
 		<div id="MT" class="hidden" onload="">
 			How? This is not open to the public.
 		</div>
-		
+		© 2022. This website is protected by copywrite.
 	</body>
 </html>

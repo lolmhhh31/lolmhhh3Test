@@ -1,5 +1,10 @@
 <!doctype html>
 
+<!--
+Get off source page loser.
+All code below is under copywrite, You can not use any of it unless you have permisstion from me.
+-->
+
 <html lang="en-US">
 	<head>
 	<title>Projects - Lols Test</title>
@@ -8,17 +13,19 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/10.32.0/js/jquery.fileupload.min.js"></script>
 
 	<noscript>
-		<div id="warning" class="warning"><h3>Enable JavaScript. Not thing will function.</h3></div>
+		<div id="warning" class="warning"><h3>You better turn on Javascript, Now. Dont make me.</h3></div>
 	</noscript>
 		
-		<!-- Top Nav Java Script -->
-
-		<!-- Vars ?pt=Projects&p=MT -->
+	<!-- Loading JS -->
 		
 	<script>
+		// location.href = "https://zak.jasonmccall.com/Mantinace"
+		function CK(showDiv) {
+			document.getElementById(showDiv).classList.add("show", "warning");
+			document.getElementById(showDiv).classList.remove("hidden");
+		}
 		function getURLVar(cname) {
 		  let name = cname + "=";
 		  let decodedCookie = location.search;
@@ -43,6 +50,23 @@
 			document.getElementById(showDiv).classList.remove("hidden");
 			document.title = PN+" - Lols Test"
 		}
+		function BCKS(showDiv, TNB,  PN) {
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById(TBN).classList.add("active");
+			document.getElementById(TBN).classList.remove("inactive");  
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById(showDiv).classList.add("show");
+			document.getElementById(showDiv).classList.remove("hidden");
+			document.title = PN+" - Lols Test"
+		}
+		function ACK(showDiv) {
+			document.getElementById(showDiv).classList.remove("show");
+			document.getElementById(showDiv).classList.add("hidden");
+		}
 		function getCookie(cname) {
 				  let name = cname + "=";
 				  let decodedCookie = decodeURIComponent(document.cookie);
@@ -57,9 +81,6 @@
 				    }
 				  }
 				  return "";}	
-		if (getCoockie("admin") == 0) {
-			location.herf = "zak.jasonmccall.com";
-		}
 		function setCookie(cname, cvalue, exdays) {
 				  const d = new Date();
 				  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -85,18 +106,6 @@
 		}
 		function GetAdmin() {
 			var AD = getCookie("admin");
-			var Pass1 = getCookie("Pass1");
-			var Pass2 = getCookie("Pass2");
-			var Pass3 = getCookie("Pass3");
-			var Pass4 = getCookie("Pass4");
-
-
-		 if (Pass1 != "" && Pass2 != "" && Pass3 != "" && Pass4 != "") {
-				document.getElementById("SetPass").classList.add("hidden");
-				document.getElementById("SetPass").classList.remove("show");
-				document.getElementById("LogPass").classList.add("show");
-				document.getElementById("LogPass").classList.remove("hidden");
-			}
 			
 			if (AD == 1) {
 				console.log("Welcome, Admin");
@@ -108,7 +117,14 @@
 					Elemetss[index].src = "";
 				}
 			}
+			
 		}
+	</script>
+
+	<!-- Top Navigation Bar JS -->
+		
+	<script>
+		var all = ""
 		function myFunction() {
 		  var x = document.getElementById("topnav");
 		  if (x.className === "topnav") {
@@ -156,32 +172,6 @@
 			document.getElementById("Updates").classList.remove("hidden");
 			document.title = "Updates - Lols Test"
 		}
-		function DTN() {
-			document.getElementById("EmployerTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("EmployerTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Employ").classList.add("show");
-			document.getElementById("Employ").classList.remove("hidden");
-			document.title = "Employer Only Page - Lols Test"
-		}
-		function FTN() {
-			document.getElementById("FactorioTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("FactorioTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Factorio").classList.add("show");
-			document.getElementById("Factorio").classList.remove("hidden");
-			document.title = "Factorio Mods - Lols Test"
-		}
 		function ADTN() {
 			document.getElementById("AdminMenTN").classList.remove("inactive");
 			var x = document.getElementsByClassName("active");
@@ -196,13 +186,14 @@
 			document.title = "admin - Lols Test"
 		}
 		function loaded() {
-		document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-		document.getElementById("MULD").innerHTML = "Multi: +"+(Multi-1)+"x";
-		document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
+		
 	}
 		function lOA() {
+			GetAdmin();
+			clickerGameLoad();
 			loaded();
 			var tab = getURLVar("?tab");
+			all = all + " tab" + tab + ","
 			console.log(tab)
 			if (tab == "projects" || tab == "undefined" || tab == "") {
 				PTN()
@@ -228,11 +219,13 @@
 				setCookie("Emp", 1, 30)
 			}
 			MIT();
-			GetAdmin()
+			
 		}
+	</script>
 		
-		// Admin Functions \\
-
+	<!-- Admin JS -->
+		
+	<script>
 		function Reset() {
 			var Elemetss = document.getElementsByClassName("img");
 			for (let index = 0; index < Elemetss.length; index++) {
@@ -248,70 +241,12 @@
 		function TCP() {
 			location.href = "https://zak.jasonmccall.com/CalebProj/"
 		}
-		var passset = 1
-		function SetPass() {
-			if (document.getElementById("Pass").value != "") {
-				setCookie("Pass"+passset, document.getElementById("Pass").value, 36500)
-				passset += 1
-				document.getElementById("Pass").value = ""
-				document.getElementById("PassB").innerHTML = "Set password "+passset
-				if (passset === 5) {
-					BCK("LogPass", "Login Admin")
-					document.getElementById("Password").classList.add("show");
-					document.getElementById("Password").classList.remove("hidden");	
-					document.getElementById("SetPass").classList.remove("show");
-					document.getElementById("SetPass").classList.add("hidden");	
-				}
-			}
-		}
-		var Pass1Log = 0;
-		var Pass2Log = 0;
-		var Pass3Log = 0;
-		var Pass4Log = 0;
-
-		
-		function login() {
-			if (document.getElementById("Logi").value == getCookie("Pass1")) {
-				Pass1Log = 1;
-				document.getElementById("Logi").value = "";
-				document.getElementById("LogiB").innerHTML = "Login Pass 2";
-			} else {
-				if (Pass1Log != 1) {
-					location.href = "https://zak.jasonmccall.com/WebMain/";
-				} else {
-					if (document.getElementById("Logi").value == getCookie("Pass2")) {
-						Pass2Log = 1;
-						document.getElementById("Logi").value = "";
-						document.getElementById("LogiB").innerHTML = "Login Pass 3";
-					} else {
-						if (Pass2Log != 1) {
-							location.href = "https://zak.jasonmccall.com/WebMain/";
-						} else {
-							if (document.getElementById("Logi").value == getCookie("Pass3")) {
-								Pass3Log = 1;
-								document.getElementById("Logi").value = "";
-								document.getElementById("LogiB").innerHTML = "Login Pass 4";
-							} else {
-								if (Pass3Log != 1) {
-									location.href = "https://zak.jasonmccall.com/WebMain/";
-								} else {
-									if (document.getElementById("Logi").value == getCookie("Pass4")) {
-										BCK("fs", "Projects.");
-									} else {
-										location.href = "https://zak.jasonmccall.com/WebMain/"
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
 		//setCookie("admin", 1, 365)
-
+	</script>
 		
-    // Clicker Game Java Script \\
+  <!-- Clicker Game JS -->
+
+	<script>
 		
 		
 		var Mon = 0;
@@ -326,50 +261,80 @@
 		if (getCookie("mpc") > 0) {
 			NonPC = getCookie("mpc");
 		}
-		function MONCLI() {
-			Mon = (Mon+MonPC)*Multi;
-			document.getElementById("MOND").innerHTML = "Money: $"+Mon;
+		if (getCookie("STRS") == 1) {
+			setCookie("money", 0, 365);
+			setCookie("multi", 0, 365);
+			setCookie("mpc", 0, 365);
+			
+			Mon = 0;
+			Multi = 1;
+			MonPC = 1;
+			setCookie("STRS", 0, 365);
+		}
+		function changeText(id, text) {
+			if (text != 'NaN' && text != null && text != '' && id != 'NaN' && id != null && id != '') {
+				document.getElementById(id).innerHTML = text;
+			}	
+			console.log(id+" id");
+			console.log(text+" text");
+		}
+		function gm() {
+			Mon = MonPC * Multi + Mon;
+			console.log(Mon+" : "+MonPC * Multi)
 			setCookie("money", Mon, 365);
+			changeText("MOND", "Money: $"+Mon);
 			if (Mon == "NaN" || Mon == "Infinity") {
-				Mon = 0
-				setCookine("money", 0, 365)
-				location.href = ""
+				Mon = 0;
+				setCookie("money", 0, 365);
+				setCookie("multi", 0, 365);
+				setCookie("mpc", 0, 365);
+				setCookie("STRS", 1, 365);
+				location.href = "https://zak.jasonmccall.com/?StatsReset=1";
 			}
 		}
 		function MULBUY() {
-			if (Mon >= 10*Multi) {
+			if (Mon >= (20 * Multi) * MonPC) {
+				Mon = Mon - (20 * Multi) * MonPC;
 				Multi = Multi + 1;
-				Mon = Mon+10*-Multi;
-				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-				document.getElementById("MULD").innerHTML = "Multi: +"+Multi+"x";
-				setCookie("multi", Multi, 365);
-				setCookie("money", Mon, 365);
+				changeText("MOND", "Money: $"+Mon);
+				changeText("MULD", "Multi: +"+(Multi-1)+"x");
+				changeText("Multi", "Multiplayer Cost: $"+(20 * Multi) * MonPC);
+				setCookie("multi", Multi, 365)
 			}
 		}
 		function MPCBUY() {
-			if (Mon > 20*MonPC) {
+			if (Mon >= 40 * MonPC) {
+				Mon = Mon-(40*MonPC);
 				MonPC = MonPC + 1;
-				Mon = (Mon-20)*MonPC;
-				document.getElementById("MOND").innerHTML = "Money: $"+Mon;
-				document.getElementById("MPC").innerHTML = "Money Per Click: "+MonPC;
-				setCookie("mpc", MonPC, 365);
-				setCookie("money", Mon, 365);
+				changeText("MOND", "Money: $"+Mon);
+				changeText("MPC", "Money Per Click: "+MonPC);
+				changeText("MPCB", "Money Per Clicke Cost: $"+40*MonPC)
+				changeText("Multi", "Multiplayer Cost: $"+(20 * Multi) * MonPC);
+				setCookie("mpc", MonPC, 365)
 			}
 		}
+		function clickerGameLoad() {
+			changeText("MOND", "Money: $"+Mon);
+			changeText('MULD', 'Multi: +'+(Multi-1)+'x');
+			changeText('MPC', 'Money Per Click: '+MonPC);
+		}
 	</script>
+		
 	</head>
 
 	<body onload="lOA()">
 
-		<!-- Top Nav -->
-		
+		<div id="TA" class="hidden"><h3>Your accses has been loged thank you.</h3><br><button onclick="ACK('TA')">Close</button></div>
+
+		<!-- Top Navigation -->
+
 		<div id="topnav" class="topnav">
 			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
-			<button id="BlogTN" onclick="BCK('Blogs', 'Blogs')" class="hidden">Make and Read Blogs!</button>
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
 			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
+			<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity Games</button>
+			<button id="PlayMobiTN" onclick="" class="inactive">Mobile Games</button>
 			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button> 
-			<button id="SetUserNameTN" onclick="" class="hidden">Set / Change Username</button>
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
  		   <i class="fa fa-bars"></i>
   		</a>
@@ -379,31 +344,85 @@
 		<!-- Loading div -->
 		
 		<div id="Loading" class="show">
-			<h2>Loading...</h2>
+			<h2>Redirecting/Loading</h2>
 		</div>
 
-		<!-- Top Nav Divs -->
+		<!-- Top Navigation Divs -->
 		
 		<div id="Projects" class="hidden">
 			<h2>My projects</h2>
 			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 			<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
+			<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
 		</div>
+		
 		<div id="About" class="hidden">
 			<h2>About me</h2><br><br>
-			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA.</p>
+			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA. Currently I am learning and Looking for an internship for a small comapany for there website.</p>
 		</div>
+		
 		<div id="Updates" class="hidden">
 			<h2>Updates</h2>
 			<dl>
-				<dt>1.3 (Current)</dt>
+				
+				<dt>BUILD 1.0 (Past)</dt>
+				<dd>- Added About Me</dd>
+				<dd>- Added Top Navigation Bar</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.1 (Past)</dt>
+				<dd>- Added Clicker Game</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.2 (Past)</dt>
+				<dd>- Clicker Game Update</dd>
+				<dd>- Music Project</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.3 (Past)</dt>
 				<dd>- All on one HTML page</dd>
 				<dd>- Adding content to all Tabs</dd>
 				<dd>- Clicker Game Bug fixes</dd>
 				<dd>- Responsive TopNav</dd>
-				<dt>1.4 (Future)</dt>
-				<dd>- Finish bug fixing with Clicker Game</dd>
+				<dd>- All HTML on one Page!</dd>
+
+				<br></br>
+				
+				<dt>BUILD 1.4 (Past)</dt>
+				<dd>- Finish bug fix with Clicker Game</dd>
+				<dd>- Work on Music Project (Has'nt been updated in forever!)</dd>
+				<dd>- Slight CSS Changes.</dd>
+
+				<br></br>
+
+				<dt>BUILD 1.5 (Current)</dt>
+				<dd>- Added 2 more tabs</dd>
+				<dd>- Added More Music </dd>
+				<dd>- CSS changes</dd>
+				<dd>- Work on Music Project</dd>
+				<dd>- Use logger removed for logistical reasons</dd>
+
+				<br></br>
+
+				<dt>BUILD 1.6 (Future)</dt>
+				<dd>- Adding Games to the new tabs</dd>
+				<dd>- Making a real home page</dd>
+				<dd>- Hopefully Posting 2 games on the Andriod App store</dd>
+				<dd>|   - Rice Tapper</dd>
+				<dd>|   - Bottle Cap Tapper</dd>
+				<dd>- 1 New Tab</dd>
 			</dl>
+		</div>
+
+		<div id="UniyProjs" class="hidden">
+		
+		</div>
+
+		<div id="MobileGames" class="hidden">
+			
 		</div>
 
 		<!-- Admin Divs -->
@@ -411,94 +430,70 @@
 		<div id="admin" class="hidden">
 			<h4>Admin Menu.</h4>
 			<h5>Tools:</h5>
-			<button class="PGB" onclick="">Inf Multi (Wip)</button>
 			<button class="PGB" onclick="BCK('beta', 'Betas')">Current Betas</button>
 			<button class="PGB" onclick="TCP()">Teleport to Caleb Page</button>
 		</div>
 
 		<div id="beta" class="hidden">
 			<h5>Betas:</h5>
+			<script>
+				function A() {
+					location.href = "https://zak.jasonmccall.com/WebMain/"
+				}
+				function B() {
+					location.href = "https://Counter.lolmhhh3.repl.co/read.php?f=zjmc";
+				}
+			</script>
 			<button class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game (JS errors)</button>
-			<button class="PGB" onclick="BCK('EncT', 'Encry')">Encript (Beta)</button>
-			<button class="PGB" onclick="BCK('Blogs', 'Blogs')">Blogs</button>
-			<button class="PGB" onclick="BCK('Password', 'Admin Pasword')">PHP Project</button>
+			<button class="PGB" onclick="A()">Test Web</button>
+			<button class="PGB" onclick="B()">Users</button>
 		</div>
 		
 		<!-- Projects Divs -->
 		
 		<div id="CG" class="hidden">
 			<p>Your data will be deleted after a year of inactivity</p>
+			<p id="ERD"></p>
 			<h2>Clicker Game</h2>
 			<br></br>
-			<p id="MOND" class="MONDI">TURN ON JAVA SCRIPT</p>
-			<p id="MULD" class="MULDI">OWO</p>
-			<p id="MPC" class="MPCD">It wont work without it =D</p>
+
+			<!-- Value Display -->
+			
+			<p onload="changeText('MONDI', 'Money: $'+Mon);" id="MOND" class="MONDI">Loading...</p>
+			<p onload="changeText('MULDI', 'Multi: +'+(Multi-1)+'x');" id="MULD" class="MULDI">Loading...</p>
+			<p onload="changeText('MPCD', 'Money Per Click: '+MonPC);" id="MPC" class="MPCD">Loading...</p>
 			<br></br>
-			<button id="GM" class="GMB" onclick="MONCLI()">Get Money</button>
-			<br></br>
+
+			<!-- Get money Button -->
+			
+			<button id="GM" class="PGB" onclick="gm()">Get Money</button>
+			<br></br><br></br><br></br>
 			<h4>Upgrades</h4>
 
 			<!-- Upgrade Div -->
 			
 			<div id="Upgrades" class="Upgrades">
-				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $10</button>
-				<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $20</button>
+				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $20</button>
+				<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $40</button>
 			</div>
 		</div>
 
 		<div id="AudTest" class="hidden">
 			<h2>Music player formatting and test.</h2>
-			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music.</p>
+			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music. <br><br> I did not compose or play any of this music, all rights go to thier respective owners.</p>
 			<a href="https://www.youtube.com/watch?v=luQSQuCHtcI" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">Inzo - Overthinker (Link)</a>
 			<br></br>
 			<audio controls autoplay>
-			  <source src="Audio/IOT/i.mp3" type="audio/mp3">
-				Your browser does not support the audio element.
+			  <source src="Audio/MUPJ/" type="audio/mp3">
+				Your browser does not MP3.
 			</audio>
-		</div>
-
-		<div id="Password" class="hidden">
-			<div id="SetPass" class="show">
-				<textarea id="Pass" row=1 cons="30" placeholder="Set Password"></textarea>
-				<button id="PassB" class="PGB" onclick="SetPass()">Set Password 1</button>
-			</div>
-			<div id="LogPass" class="hidden">
-				<textarea id="Logi" row=1 cons="30" placeholder="Login"></textarea>
-				<button id="LogiB" class="PGB" onclick="login()">Login Password 1</button>
-			</div>
-		</div>
-
-		<div id="EncT" class="hidden">
-			<textarea id="messageEnc" row=1 cols=40 placeholder="Message to enctypt Here"></textarea><br><br>
-			<button class="PGB" onclick="textClick()">Encrypt</button><br><br>
-			<textarea id="out" row="1" cols=40></textarea>
-			<script>
-				var RegAl = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-				var EncAL = ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c"]
-				function textClick() {
-					var R = document.getElementById("messageEnc").value;
-					console.log(R)
-					let l = R.length;
-					console.log(l)
-					var E = "";
-					for (var index = 0; index < l; index++) {
-						console.log(index);
-						var Mess = R.substring(index, (index+1));
-						if (Mess != "") {
-							for (let i = 0; i < RegAl.lenght; i++) {
-								if (RegAl[i] == Mess) {
-									if (E == "") {
-										E = EncAl[i];
-									} else {
-										E = E + EncAl[i];
-									}
-								}
-							}
-						}
-					}
-					document.getElementById("out").Value = E
-				}
-			</script>
+			<br><br><br>
+			<a href="https://www.youtube.com/watch?v=aBkTkxKDduc" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">C418 - Sweden - Minecraft Volume Alpha (Link)</a>
+			<br></br>
+			<audio controls autoplay>
+			  <source src="Audio/MUPJ/" type="audio/mp3">
+				Your browser does not MP3.
+			</audio>
 		</div>
 
 		<!-- Mit App Inventor Web Projects -->
@@ -506,62 +501,6 @@
 		<div id="MT" class="hidden" onload="">
 			How? This is not open to the public.
 		</div>
-
-		<!-- Factorio Mod Divs -->
-
-		<div id="fs" class=hidden>
-			<h2>WHEN THE IMPOSTER IS SUS!!!!!</h2>
-			<br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br><br><br>
-			<img class="img" src="https://th.bing.com/th/id/R.35f21f5bee9f69427449ff32620367e8?rik=FD2AuGImj6TFLA&riu=http%3a%2f%2fi.imgur.com%2fpIFN6aV.jpg&ehk=pRSe6pNUSUruoFQ6T6I1QwSFFvwF3vf3DkjBKCj2zQg%3d&risl=&pid=ImgRaw&r=0" style="width:45%;height:90%;">
-				<img class="img" src="https://th.bing.com/th/id/R.628e62b9b8f1248493fa0bb66f24702d?rik=o5196U3F07wcJA&riu=http%3a%2f%2fi.imgur.com%2fVztrv8m.jpg&ehk=zL2Waj5tVm8VFv8a6h1uz9kWbPuXhKfSP3GvP%2b6EhHo%3d&risl=&pid=ImgRaw&r=0" style="width:45%;height:90%;;">
-					<br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br><br>
-					<img class="img" src="https://th.bing.com/th/id/OIP.DYufgUiUCb_IYO-ADQ0N1QHaKZ?pid=ImgDet&rs=1"  style="width:45%;height:90%;">
-					<img class="img" src="https://th.bing.com/th/id/OIP.noPvTudY08pj-qXkQg-pDQHaKe?pid=ImgDet&rs=1" style="width:45%;height:90%;">
-					<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-					<img class="img" src="https://th.bing.com/th/id/R.5364af8e365ca8b7378cc62b1c4ef3b6?rik=9VcUZj0%2fOYbtmQ&riu=http%3a%2f%2fimages.luscious.net%2f124%2flusciousnet_catgirl-hentai_1474224002.jpg&ehk=MiLpmeVUiVePE3rWs%2bZ5vYrBkLJ1YFaTuq0mLETmIXE%3d&risl=&pid=ImgRaw&r=0" style="width:45%;height:90%;">
-						<img src="https://th.bing.com/th/id/R.798def37961ac28fc35226c395c20100?rik=0dDzRIinxZsAmw&riu=http%3a%2f%2fi.imgur.com%2fB2zooIW.jpg&ehk=IPTLhUL%2fh0QJGT5b4NXrSY636k%2bsNIXJDjQWpY0XsEY%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-							<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-							<img src="https://th.bing.com/th/id/R.a00bff9723281c8f610f3acb96a8983b?rik=9aLCOuW3mS8whQ&riu=http%3a%2f%2fhentaicdn.com%2fhentai%2f2534%2f1%2fKemomimi_Onsen_005.jpg%3f0df527&ehk=8qL152Ac0roXAJJXYi4D5zUwnEJ9TOzKJM7U6wqQt40%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-								<img src="https://th.bing.com/th/id/R.29b252f5e610a4c1410c08588bf08dca?rik=5o7EfONMHAIeMQ&riu=http%3a%2f%2fi.imgur.com%2fJOjKy4Y.jpg&ehk=TlEJ1f3r9GSQVJau1T12nVCM9gF25sDVuTLgv4oPua0%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-									<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-									<img src="https://th.bing.com/th/id/R.3e4cd545145c280239879c5d1e18ce88?rik=DwRWRe%2fS3u4zpg&riu=http%3a%2f%2fpictures.hentai-foundry.com%2fa%2fAnimeFlux%2f327797.jpg&ehk=EhuiOosPYxvcFlGdeHZhtugAJJFlc55MQI%2b7tD3dHDA%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-										<img src="https://th.bing.com/th/id/OIP.sVMiUnIF3tmJAXfSfThxpQHaLN?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;"
-<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-											<img src="https://th.bing.com/th/id/OIP.S0hnWJLJKbuzhAqD3q4A-wHaKa?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-											<img src="https://th.bing.com/th/id/R.ba7f78af7137c36b0c37de7dc20779ca?rik=Qf%2fDfGGiyM%2fJSw&riu=http%3a%2f%2flivedoor.blogimg.jp%2ftoranoanagazou%2fimgs%2f1%2fc%2f1cf074f8.jpg&ehk=JGdJoCLcOA8KOI5tMAQneU3IXAFuZiNwlJAJxyxlFGk%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-												<img src="https://th.bing.com/th/id/R.fcd044f74cdc7843451b5db9785a25ed?rik=I4QajARcXXE3dA&riu=http%3a%2f%2fimages.luscious.net%2f734%2flusciousnet_hentai_catgirls_wwwneco_556792752.1024x0.jpg&ehk=XAnNXqTdMXWTJHst83r6waUOWnyRWQw%2b9Bbi1becrdk%3d&risl=&pid=ImgRaw&r=0
-" class="img" style="width:45%;height:90%;"
-													<img src="https://th.bing.com/th/id/OIP.PkptD-0gfXXf3Qxom1640gHaMW?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-													<img src="https://th.bing.com/th/id/R.b8ff9445e474264b5a43b2b2e009bd7e?rik=vowXlTeAwCPUwA&riu=http%3a%2f%2fwww.sankakucomplex.com%2fwp-content%2fuploads%2f2009%2f08%2fnopan-hentai-049.jpg&ehk=trXZSXX7%2bp9LF%2bBD%2bt4QX15JmPUgI3h8ONxgX%2bDTxlA%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-<img src="https://th.bing.com/th/id/R.8eebb85b68156a8151c617eb3581e86f?rik=RH66HHdrlD9FLQ&riu=http%3a%2f%2fi.imgur.com%2fUFqIvsG.jpg&ehk=6RHqZ2hKR6M8s2N%2baDXAxbGucrJj9dTPUmrtGa%2fi4ig%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-														<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-	<img src="https://th.bing.com/th/id/R.7b1c4392eb978f2551de1d51e6042ba8?rik=PN8CrM3TGuVXMw&riu=http%3a%2f%2fwww.sankakucomplex.com%2fwp-content%2fuploads%2f2009%2f08%2fnopan-hentai-009.png&ehk=Re0mIA3SyG2cV3KF%2fh8frGsKPCQF2IV5TBpuXJUBiwY%3d&risl=&pid=ImgRaw&r=0" class="img" style="width:45%;height:90%;">
-		<img src="https://th.bing.com/th/id/OIP.ORW3fB7BwlcOV-cz9eb2KQHaHa?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-<img src="https://th.bing.com/th/id/OIP.w04crZaSYplt_MEaVMi-uQHaOL?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-<img src="https://th.bing.com/th/id/OIP.QuMFijxLk6nXntNrbrwgtgHaKe?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;"> 
-		<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-<img src="https://th.bing.com/th/id/OIP.awbxYzDSakDgAJwqxjViRwHaLC?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-<img src="https://th.bing.com/th/id/OIP.V-9jwxbElCu0uQCaIWNmHwHaMQ?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-		<img src="https://th.bing.com/th/id/OIP.gKVnvcCo1UJGy17iXd6ZOAHaKH?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<img src="https://th.bing.com/th/id/OIP.c5dwhJCCjhXN3k8CYKiE6wHaKe?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-		<img src="https://th.bing.com/th/id/OIP.E42RAj4exwhB6rv_rJg-ZgHaPO?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<img src="https://th.bing.com/th/id/OIP.8Xd9a8cY68SFleBom0KPWAHaL3?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-		<img src="https://th.bing.com/th/id/OIP.zVADzUG1NTvA0W5xDCL2BAHaKW?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<img src="https://th.bing.com/th/id/OIP.GekEN15zvzKfCgKH2c67NwHaKe?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-<img src="https://th.bing.com/th/id/OIP.KCK1pohZi8EAO-S-0MctiwHaF7?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<img src="https://th.bing.com/th/id/OIP.5stjvA_eCmMPqSx5OzVyZgHaFj?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-<br><br><br><br><br><br><br><br><button class="PGB" id="Reset" onclick="Reset()">Reset</button><br><br><br><br>
-		<img src="https://th.bing.com/th/id/OIP.37MQ0zuYRCgeIG3hVPP55wHaFj?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-		<img src="https://th.bing.com/th/id/OIP.5BgTWI3YYrRxto-XY2gs-AHaJR?pid=ImgDet&rs=1" class="img" style="width:45%;height:90%;">
-				<!-- <img src="" class="img" style="width:45%;height:90%;"> -->
-		</div>  
-		
+		© 2022. This website is protected by copywrite.
 	</body>
 </html>
