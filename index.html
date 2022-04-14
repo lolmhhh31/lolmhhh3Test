@@ -1,36 +1,33 @@
 <!doctype html>
 
-<!-- Get off source page loser. -->
-<!-- All code below is under copywrite, You can not use any of it unless you have permisstion from me. -->
+<!--
+Get off source page loser.
+All code below is under copywrite, You can not use any of it unless you have permisstion from me.
+-->
 
 <html lang="en-US">
 	<head>
 	<title>Projects - Lols Test</title>
 	<link rel="icon" href="https://zak.jasonmccall.com/favicon.png">
+	<meta name="description" content="Test webpage">
+  <meta name="keywords" content="lol, test">
+  <meta name="author" content="lolmhhh3">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<noscript>
-		<div id="warning" class="warning"><h3>You better turn on Javascript, Now. Dont make me.</h3></div>
+		<div id="warning" class="warning"><h3>Javascript Please!.</h3></div>
 	</noscript>
 		
 	<!-- Loading JS -->
 		
 	<script>
-		// location.href = "https://zak.jasonmccall.com/Mantinace"
+		 //location.href = "https://zak.jasonmccall.com/Mantinace"
 		function CK(showDiv) {
 			document.getElementById(showDiv).classList.add("show", "warning");
 			document.getElementById(showDiv).classList.remove("hidden");
-		}
-		if (getCookie("Cons") != "") {
-			if (getURLVar("?d") == "") {
-				location.href = "https://Counter.lolmhhh3.repl.co?f=zjmc"+location.search;
-				CK("TA");
-			}
-		} else {
-			
 		}
 		function getURLVar(cname) {
 		  let name = cname + "=";
@@ -49,6 +46,19 @@
 			location.search = ""
 		}
 		function BCK(showDiv, PN) {
+			var y = document.getElementsByClassName("show");
+			y[0].classList.add("hidden");
+			y[0].classList.remove("show");
+			document.getElementById(showDiv).classList.add("show");
+			document.getElementById(showDiv).classList.remove("hidden");
+			document.title = PN+" - Lols Test"
+		}
+		function BCKS(showDiv, TNB,  PN) {
+			var x = document.getElementsByClassName("active");
+			x[0].classList.add("inactive");
+			x[0].classList.remove("active");
+			document.getElementById(TNB).classList.add("active");
+			document.getElementById(TNB).classList.remove("inactive");  
 			var y = document.getElementsByClassName("show");
 			y[0].classList.add("hidden");
 			y[0].classList.remove("show");
@@ -164,32 +174,6 @@
 			document.getElementById("Updates").classList.add("show");
 			document.getElementById("Updates").classList.remove("hidden");
 			document.title = "Updates - Lols Test"
-		}
-		function DTN() {
-			document.getElementById("EmployerTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("EmployerTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Employ").classList.add("show");
-			document.getElementById("Employ").classList.remove("hidden");
-			document.title = "Employer Only Page - Lols Test"
-		}
-		function FTN() {
-			document.getElementById("FactorioTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("FactorioTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Factorio").classList.add("show");
-			document.getElementById("Factorio").classList.remove("hidden");
-			document.title = "Factorio Mods - Lols Test"
 		}
 		function ADTN() {
 			document.getElementById("AdminMenTN").classList.remove("inactive");
@@ -343,7 +327,7 @@
 
 	<body onload="lOA()">
 
-		<div id="TA" class="warning"><h3>Your accses has been loged thank you.</h3><br><button onclick="ACK('TA')">Close</button></div>
+		<div id="TA" class="hidden"><h3>Your accses has been loged thank you.</h3><br><button onclick="ACK('TA')">Close</button></div>
 
 		<!-- Top Navigation -->
 
@@ -351,6 +335,9 @@
 			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
 			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
+			<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity Games</button>
+			<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile Games</button>
+			<button id="COrgProjsTN" onclick="BCKS('COrgGames', 'COrgProjsTN', 'Code.org Projects')">Code.org Projects</button>
 			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button> 
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
  		   <i class="fa fa-bars"></i>
@@ -369,7 +356,7 @@
 		<div id="Projects" class="hidden">
 			<h2>My projects</h2>
 			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
-			<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
+			<!-- <button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button> -->
 			<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
 		</div>
 		
@@ -408,20 +395,41 @@
 
 				<br></br>
 				
-				<dt>BUILD 1.4 (Current)</dt>
+				<dt>BUILD 1.4 (Past)</dt>
 				<dd>- Finish bug fix with Clicker Game</dd>
 				<dd>- Work on Music Project (Has'nt been updated in forever!)</dd>
 				<dd>- Slight CSS Changes.</dd>
 
 				<br></br>
 
-				<dt>BUILD 1.5 (Future)</dt>
-				<dd>- Adding one project</dd>
-				<dd>- Adding More Music </dd>
-				<dd>- Possible CSS changes</dd>
-				<dd>- Clicker Game Upgrade</dd>
+				<dt>BUILD 1.5 (Current)</dt>
+				<dd>- Added 3 more tabs</dd>
+				<dd>- Added More Music </dd>
+				<dd>- CSS changes</dd>
 				<dd>- Work on Music Project</dd>
+				<dd>- Use logger removed for logistical reasons</dd>
+
+				<br></br>
+
+				<dt>BUILD 1.6 (Future)</dt>
+				<dd>- Adding Games to the new tabs</dd>
+				<dd>- Making a real home page</dd>
+				<dd>- Hopefully Posting 2 games on the Andriod App store</dd>
+				<dd>   |   - Rice Tapper</dd>
+				<dd>   |   - Bottle Cap Tapper</dd>
 			</dl>
+		</div>
+
+		<div id="UniyProjs" class="hidden">
+			<h2>Nothing Yet...</h2>
+		</div>
+
+		<div id="MobileGames" class="hidden">
+			<h2>Nothing Yet...</h2>
+		</div>
+
+		<div id="COrgGames" class="hidden">
+			<h2>Nothing Yet...</h2>
 		</div>
 
 		<!-- Admin Divs -->
@@ -488,13 +496,6 @@
 			</audio>
 			<br><br><br>
 			<a href="https://www.youtube.com/watch?v=aBkTkxKDduc" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">C418 - Sweden - Minecraft Volume Alpha (Link)</a>
-			<br></br>
-			<audio controls autoplay>
-			  <source src="Audio/MUPJ/" type="audio/mp3">
-				Your browser does not MP3.
-			</audio>
-			<br><br><br>
-			<a href="https://www.youtube.com/watch?v=yHN0us0wsH0" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">[PD2] "Razormind" Assault (Link)</a>
 			<br></br>
 			<audio controls autoplay>
 			  <source src="Audio/MUPJ/" type="audio/mp3">

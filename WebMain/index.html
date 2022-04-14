@@ -9,19 +9,22 @@ All code below is under copywrite, You can not use any of it unless you have per
 	<head>
 	<title>Projects - Lols Test</title>
 	<link rel="icon" href="https://zak.jasonmccall.com/favicon.png">
+	<meta name="description" content="Test webpage">
+  <meta name="keywords" content="lol, test">
+  <meta name="author" content="lolmhhh3">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<noscript>
-		<div id="warning" class="warning"><h3>You better turn on Javascript, Now. Dont make me.</h3></div>
+		<div id="warning" class="warning"><h3>Javascript Please!.</h3></div>
 	</noscript>
 		
 	<!-- Loading JS -->
 		
 	<script>
-		// location.href = "https://zak.jasonmccall.com/Mantinace"
+		 //location.href = "https://zak.jasonmccall.com/Mantinace"
 		function CK(showDiv) {
 			document.getElementById(showDiv).classList.add("show", "warning");
 			document.getElementById(showDiv).classList.remove("hidden");
@@ -54,8 +57,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 			var x = document.getElementsByClassName("active");
 			x[0].classList.add("inactive");
 			x[0].classList.remove("active");
-			document.getElementById(TBN).classList.add("active");
-			document.getElementById(TBN).classList.remove("inactive");  
+			document.getElementById(TNB).classList.add("active");
+			document.getElementById(TNB).classList.remove("inactive");  
 			var y = document.getElementsByClassName("show");
 			y[0].classList.add("hidden");
 			y[0].classList.remove("show");
@@ -333,7 +336,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
 			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
 			<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity Games</button>
-			<button id="PlayMobiTN" onclick="" class="inactive">Mobile Games</button>
+			<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile Games</button>
+			<button id="COrgProjsTN" onclick="BCKS('COrgGames', 'COrgProjsTN', 'Code.org Projects')">Code.org Projects</button>
 			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button> 
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
  		   <i class="fa fa-bars"></i>
@@ -398,8 +402,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 				<br></br>
 
-				<dt>BUILD 1.5 (Current)</dt>
-				<dd>- Added 2 more tabs</dd>
+				<dt>BUILD 1.5 (Past)</dt>
+				<dd>- Added 3 more tabs</dd>
 				<dd>- Added More Music </dd>
 				<dd>- CSS changes</dd>
 				<dd>- Work on Music Project</dd>
@@ -407,22 +411,34 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 				<br></br>
 
-				<dt>BUILD 1.6 (Future)</dt>
+				<dt>BUILD 1.6 (Current)</dt>
 				<dd>- Adding Games to the new tabs</dd>
 				<dd>- Making a real home page</dd>
-				<dd>- Hopefully Posting 2 games on the Andriod App store</dd>
-				<dd>|   - Rice Tapper</dd>
-				<dd>|   - Bottle Cap Tapper</dd>
-				<dd>- 1 New Tab</dd>
+				<dd>- Posted 2 games on the Andriod App store</dd>
+				<dd>   |   - Rice Tapper</dd>
+				<dd>   |   - Bottle Cap Tapper</dd>
+				<dd>- Added Code.org Projects</dd>
+				<dd>	 |	 - OurMusic</dd>
+				<dd></dd>
+
+				<br></br>
+
+				<dt>BUILD 1.7 (Future)</dt>
+
+				
 			</dl>
 		</div>
 
 		<div id="UniyProjs" class="hidden">
-		
+			<h2>Nothing Yet...</h2>
 		</div>
 
 		<div id="MobileGames" class="hidden">
-			
+			<h2>Nothing Yet...</h2>
+		</div>
+
+		<div id="COrgGames" class="hidden">
+			<h2>Nothing Yet...</h2>
 		</div>
 
 		<!-- Admin Divs -->
