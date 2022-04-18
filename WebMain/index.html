@@ -6,43 +6,46 @@ All code below is under copywrite, You can not use any of it unless you have per
 -->
 
 <html lang="en-US">
-	<head>
+
+<head>
 	<title>Projects - Lols Test</title>
 	<link rel="icon" href="https://zak.jasonmccall.com/favicon.png">
 	<meta name="description" content="Test webpage">
-  <meta name="keywords" content="lol, test">
-  <meta name="author" content="lolmhhh3">
+	<meta name="keywords" content="lol, test">
+	<meta name="author" content="lolmhhh3">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<noscript>
-		<div id="warning" class="warning"><h3>Javascript Please!.</h3></div>
+		<div id="warning" class="warning">
+			<h3>Javascript Please!.</h3>
+		</div>
 	</noscript>
-		
+
 	<!-- Loading JS -->
-		
+
 	<script>
-		 //location.href = "https://zak.jasonmccall.com/Mantinace"
+		//location.href = "https://zak.jasonmccall.com/Mantinace"
 		function CK(showDiv) {
 			document.getElementById(showDiv).classList.add("show", "warning");
 			document.getElementById(showDiv).classList.remove("hidden");
 		}
 		function getURLVar(cname) {
-		  let name = cname + "=";
-		  let decodedCookie = location.search;
-		  let ca = decodedCookie.split('&');
-		  for(let i = 0; i <ca.length; i++) {
-		    let c = ca[i];
-		    while (c.charAt(0) == ' ') {
-		      c = c.substring(1);
-		    }
-		    if (c.indexOf(name) == 0) {
-		      return c.substring(name.length, c.length);
-		    }
-		  }
-		  return "";
+			let name = cname + "=";
+			let decodedCookie = location.search;
+			let ca = decodedCookie.split('&');
+			for (let i = 0; i < ca.length; i++) {
+				let c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
 			location.search = ""
 		}
 		function BCK(showDiv, PN) {
@@ -51,45 +54,46 @@ All code below is under copywrite, You can not use any of it unless you have per
 			y[0].classList.remove("show");
 			document.getElementById(showDiv).classList.add("show");
 			document.getElementById(showDiv).classList.remove("hidden");
-			document.title = PN+" - Lols Test"
+			document.title = PN + " - Lols Test"
 		}
-		function BCKS(showDiv, TNB,  PN) {
+		function BCKS(showDiv, TNB, PN) {
 			var x = document.getElementsByClassName("active");
 			x[0].classList.add("inactive");
 			x[0].classList.remove("active");
 			document.getElementById(TNB).classList.add("active");
-			document.getElementById(TNB).classList.remove("inactive");  
+			document.getElementById(TNB).classList.remove("inactive");
 			var y = document.getElementsByClassName("show");
 			y[0].classList.add("hidden");
 			y[0].classList.remove("show");
 			document.getElementById(showDiv).classList.add("show");
 			document.getElementById(showDiv).classList.remove("hidden");
-			document.title = PN+" - Lols Test"
+			document.title = PN + " - Lols Test"
 		}
 		function ACK(showDiv) {
 			document.getElementById(showDiv).classList.remove("show");
 			document.getElementById(showDiv).classList.add("hidden");
 		}
 		function getCookie(cname) {
-				  let name = cname + "=";
-				  let decodedCookie = decodeURIComponent(document.cookie);
-				  let ca = decodedCookie.split(';');
-				  for(let i = 0; i <ca.length; i++) {
-				    let c = ca[i];
-				    while (c.charAt(0) == ' ') {
-				      c = c.substring(1);
-				    }
-				    if (c.indexOf(name) == 0) {
-				      return c.substring(name.length, c.length);
-				    }
-				  }
-				  return "";}	
-		function setCookie(cname, cvalue, exdays) {
-				  const d = new Date();
-				  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-				  let expires = "expires="+d.toUTCString();
-				  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			let name = cname + "=";
+			let decodedCookie = decodeURIComponent(document.cookie);
+			let ca = decodedCookie.split(';');
+			for (let i = 0; i < ca.length; i++) {
+				let c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
 				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+		function setCookie(cname, cvalue, exdays) {
+			const d = new Date();
+			d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+			let expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
 		function MIT() {
 			var pt = getURLVar("?pt");
 			var p = getURLVar("p");
@@ -109,7 +113,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 		}
 		function GetAdmin() {
 			var AD = getCookie("admin");
-			
+
 			if (AD == 1) {
 				console.log("Welcome, Admin");
 				document.getElementById("AdminMenTN").classList.add("inactive")
@@ -120,21 +124,21 @@ All code below is under copywrite, You can not use any of it unless you have per
 					Elemetss[index].src = "";
 				}
 			}
-			
+
 		}
 	</script>
 
 	<!-- Top Navigation Bar JS -->
-		
+
 	<script>
 		var all = ""
 		function myFunction() {
-		  var x = document.getElementById("topnav");
-		  if (x.className === "topnav") {
-		    x.className += " responsive";
-		  } else {
-		    x.className = "topnav";
-		  }
+			var x = document.getElementById("topnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
 		}
 		function PTN() {
 			document.getElementById("ProjectsTN").classList.remove("inactive");
@@ -189,8 +193,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 			document.title = "admin - Lols Test"
 		}
 		function loaded() {
-		
-	}
+
+		}
 		function lOA() {
 			GetAdmin();
 			clickerGameLoad();
@@ -222,12 +226,12 @@ All code below is under copywrite, You can not use any of it unless you have per
 				setCookie("Emp", 1, 30)
 			}
 			MIT();
-			
+
 		}
 	</script>
-		
+
 	<!-- Admin JS -->
-		
+
 	<script>
 		function Reset() {
 			var Elemetss = document.getElementsByClassName("img");
@@ -240,18 +244,18 @@ All code below is under copywrite, You can not use any of it unless you have per
 		function PHP() {
 			location.href = "https://zak.jasonmccall.com/WebMain/action.php";
 		}
-		
+
 		function TCP() {
 			location.href = "https://zak.jasonmccall.com/CalebProj/"
 		}
 		//setCookie("admin", 1, 365)
 	</script>
-		
-  <!-- Clicker Game JS -->
+
+	<!-- Clicker Game JS -->
 
 	<script>
-		
-		
+
+
 		var Mon = 0;
 		var Multi = 1;
 		var MonPC = 1;
@@ -268,7 +272,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 			setCookie("money", 0, 365);
 			setCookie("multi", 0, 365);
 			setCookie("mpc", 0, 365);
-			
+
 			Mon = 0;
 			Multi = 1;
 			MonPC = 1;
@@ -277,15 +281,15 @@ All code below is under copywrite, You can not use any of it unless you have per
 		function changeText(id, text) {
 			if (text != 'NaN' && text != null && text != '' && id != 'NaN' && id != null && id != '') {
 				document.getElementById(id).innerHTML = text;
-			}	
-			console.log(id+" id");
-			console.log(text+" text");
+			}
+			console.log(id + " id");
+			console.log(text + " text");
 		}
 		function gm() {
 			Mon = MonPC * Multi + Mon;
-			console.log(Mon+" : "+MonPC * Multi)
+			console.log(Mon + " : " + MonPC * Multi)
 			setCookie("money", Mon, 365);
-			changeText("MOND", "Money: $"+Mon);
+			changeText("MOND", "Money: $" + Mon);
 			if (Mon == "NaN" || Mon == "Infinity") {
 				Mon = 0;
 				setCookie("money", 0, 365);
@@ -299,224 +303,233 @@ All code below is under copywrite, You can not use any of it unless you have per
 			if (Mon >= (20 * Multi) * MonPC) {
 				Mon = Mon - (20 * Multi) * MonPC;
 				Multi = Multi + 1;
-				changeText("MOND", "Money: $"+Mon);
-				changeText("MULD", "Multi: +"+(Multi-1)+"x");
-				changeText("Multi", "Multiplayer Cost: $"+(20 * Multi) * MonPC);
+				changeText("MOND", "Money: $" + Mon);
+				changeText("MULD", "Multi: +" + (Multi - 1) + "x");
+				changeText("Multi", "Multiplayer Cost: $" + (20 * Multi) * MonPC);
 				setCookie("multi", Multi, 365)
 			}
 		}
 		function MPCBUY() {
 			if (Mon >= 40 * MonPC) {
-				Mon = Mon-(40*MonPC);
+				Mon = Mon - (40 * MonPC);
 				MonPC = MonPC + 1;
-				changeText("MOND", "Money: $"+Mon);
-				changeText("MPC", "Money Per Click: "+MonPC);
-				changeText("MPCB", "Money Per Clicke Cost: $"+40*MonPC)
-				changeText("Multi", "Multiplayer Cost: $"+(20 * Multi) * MonPC);
+				changeText("MOND", "Money: $" + Mon);
+				changeText("MPC", "Money Per Click: " + MonPC);
+				changeText("MPCB", "Money Per Clicke Cost: $" + 40 * MonPC)
+				changeText("Multi", "Multiplayer Cost: $" + (20 * Multi) * MonPC);
 				setCookie("mpc", MonPC, 365)
 			}
 		}
 		function clickerGameLoad() {
-			changeText("MOND", "Money: $"+Mon);
-			changeText('MULD', 'Multi: +'+(Multi-1)+'x');
-			changeText('MPC', 'Money Per Click: '+MonPC);
+			changeText("MOND", "Money: $" + Mon);
+			changeText('MULD', 'Multi: +' + (Multi - 1) + 'x');
+			changeText('MPC', 'Money Per Click: ' + MonPC);
 		}
 	</script>
-		
-	</head>
 
-	<body onload="lOA()">
+</head>
 
-		<div id="TA" class="hidden"><h3>Your accses has been loged thank you.</h3><br><button onclick="ACK('TA')">Close</button></div>
+<body onload="lOA()">
 
-		<!-- Top Navigation -->
+	<!-- Top Navigation -->
 
-		<div id="topnav" class="topnav">
-			<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
-			<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
-			<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
-			<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity Games</button>
-			<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile Games</button>
-			<button id="COrgProjsTN" onclick="BCKS('COrgGames', 'COrgProjsTN', 'Code.org Projects')">Code.org Projects</button>
-			<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button> 
-			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
- 		   <i class="fa fa-bars"></i>
-  		</a>
-			<p id="PTN" class="hidden"></p>
-		</div>
+	<div id="topnav" class="topnav">
+		<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
+		<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
+		<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
+		<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity
+			Games</button>
+		<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile
+			Games</button>
+		<button id="COrgProjsTN" onclick="BCKS('COrgGames', 'COrgProjsTN', 'Code.org Projects')">Code.org Projects</button>
+		<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+		<p id="PTN" class="hidden"></p>
+	</div>
 
-		<!-- Loading div -->
-		
-		<div id="Loading" class="show">
-			<h2>Redirecting/Loading</h2>
-		</div>
+	<!-- Loading div -->
 
-		<!-- Top Navigation Divs -->
-		
-		<div id="Projects" class="hidden">
-			<h2>My projects</h2>
-			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
-			<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
-			<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
-		</div>
-		
-		<div id="About" class="hidden">
-			<h2>About me</h2><br><br>
-			<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I know HTML, and LUA. Currently I am learning and Looking for an internship for a small comapany for there website.</p>
-		</div>
-		
-		<div id="Updates" class="hidden">
-			<h2>Updates</h2>
-			<dl>
-				
-				<dt>BUILD 1.0 (Past)</dt>
-				<dd>- Added About Me</dd>
-				<dd>- Added Top Navigation Bar</dd>
+	<div id="Loading" class="show">
+		<h2>Redirecting/Loading</h2>
+	</div>
 
-				<br></br>
-				
-				<dt>BUILD 1.1 (Past)</dt>
-				<dd>- Added Clicker Game</dd>
+	<!-- Top Navigation Divs -->
 
-				<br></br>
-				
-				<dt>BUILD 1.2 (Past)</dt>
-				<dd>- Clicker Game Update</dd>
-				<dd>- Music Project</dd>
+	<div id="Projects" class="hidden">
+		<h2>My projects</h2>
+		<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
+		<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
+		<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
+	</div>
 
-				<br></br>
-				
-				<dt>BUILD 1.3 (Past)</dt>
-				<dd>- All on one HTML page</dd>
-				<dd>- Adding content to all Tabs</dd>
-				<dd>- Clicker Game Bug fixes</dd>
-				<dd>- Responsive TopNav</dd>
-				<dd>- All HTML on one Page!</dd>
+	<div id="About" class="hidden">
+		<h2>About me</h2><br><br>
+		<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I
+			know HTML, and LUA. Currently I am learning and Looking for an internship for a small comapany for there website.
+		</p>
+	</div>
 
-				<br></br>
-				
-				<dt>BUILD 1.4 (Past)</dt>
-				<dd>- Finish bug fix with Clicker Game</dd>
-				<dd>- Work on Music Project (Has'nt been updated in forever!)</dd>
-				<dd>- Slight CSS Changes.</dd>
+	<div id="Updates" class="hidden">
+		<h2>Updates</h2>
+		<dl>
 
-				<br></br>
+			<dt>BUILD 1.0 (Past)</dt>
+			<dd>- Added About Me</dd>
+			<dd>- Added Top Navigation Bar</dd>
 
-				<dt>BUILD 1.5 (Past)</dt>
-				<dd>- Added 3 more tabs</dd>
-				<dd>- Added More Music </dd>
-				<dd>- CSS changes</dd>
-				<dd>- Work on Music Project</dd>
-				<dd>- Use logger removed for logistical reasons</dd>
-
-				<br></br>
-
-				<dt>BUILD 1.6 (Current)</dt>
-				<dd>- Adding Games to the new tabs</dd>
-				<dd>- Making a real home page</dd>
-				<dd>- Posted 2 games on the Andriod App store</dd>
-				<dd>   |   - Rice Tapper</dd>
-				<dd>   |   - Bottle Cap Tapper</dd>
-				<dd>- Added Code.org Projects</dd>
-				<dd>	 |	 - OurMusic</dd>
-				<dd></dd>
-
-				<br></br>
-
-				<dt>BUILD 1.7 (Future)</dt>
-
-				
-			</dl>
-		</div>
-
-		<div id="UniyProjs" class="hidden">
-			<h2>Nothing Yet...</h2>
-		</div>
-
-		<div id="MobileGames" class="hidden">
-			<h2>Nothing Yet...</h2>
-		</div>
-
-		<div id="COrgGames" class="hidden">
-			<h2>Nothing Yet...</h2>
-		</div>
-
-		<!-- Admin Divs -->
-
-		<div id="admin" class="hidden">
-			<h4>Admin Menu.</h4>
-			<h5>Tools:</h5>
-			<button class="PGB" onclick="BCK('beta', 'Betas')">Current Betas</button>
-			<button class="PGB" onclick="TCP()">Teleport to Caleb Page</button>
-		</div>
-
-		<div id="beta" class="hidden">
-			<h5>Betas:</h5>
-			<script>
-				function A() {
-					location.href = "https://zak.jasonmccall.com/WebMain/"
-				}
-				function B() {
-					location.href = "https://Counter.lolmhhh3.repl.co/read.php?f=zjmc";
-				}
-			</script>
-			<button class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game (JS errors)</button>
-			<button class="PGB" onclick="A()">Test Web</button>
-			<button class="PGB" onclick="B()">Users</button>
-		</div>
-		
-		<!-- Projects Divs -->
-		
-		<div id="CG" class="hidden">
-			<p>Your data will be deleted after a year of inactivity</p>
-			<p id="ERD"></p>
-			<h2>Clicker Game</h2>
 			<br></br>
 
-			<!-- Value Display -->
-			
-			<p onload="changeText('MONDI', 'Money: $'+Mon);" id="MOND" class="MONDI">Loading...</p>
-			<p onload="changeText('MULDI', 'Multi: +'+(Multi-1)+'x');" id="MULD" class="MULDI">Loading...</p>
-			<p onload="changeText('MPCD', 'Money Per Click: '+MonPC);" id="MPC" class="MPCD">Loading...</p>
+			<dt>BUILD 1.1 (Past)</dt>
+			<dd>- Added Clicker Game</dd>
+
 			<br></br>
 
-			<!-- Get money Button -->
-			
-			<button id="GM" class="PGB" onclick="gm()">Get Money</button>
-			<br></br><br></br><br></br>
-			<h4>Upgrades</h4>
+			<dt>BUILD 1.2 (Past)</dt>
+			<dd>- Clicker Game Update</dd>
+			<dd>- Music Project</dd>
 
-			<!-- Upgrade Div -->
-			
-			<div id="Upgrades" class="Upgrades">
-				<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $20</button>
-				<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $40</button>
-			</div>
-		</div>
-
-		<div id="AudTest" class="hidden">
-			<h2>Music player formatting and test.</h2>
-			<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music. <br><br> I did not compose or play any of this music, all rights go to thier respective owners.</p>
-			<a href="https://www.youtube.com/watch?v=luQSQuCHtcI" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">Inzo - Overthinker (Link)</a>
 			<br></br>
-			<audio controls autoplay>
-			  <source src="Audio/MUPJ/" type="audio/mp3">
-				Your browser does not MP3.
-			</audio>
-			<br><br><br>
-			<a href="https://www.youtube.com/watch?v=aBkTkxKDduc" style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">C418 - Sweden - Minecraft Volume Alpha (Link)</a>
-			<br></br>
-			<audio controls autoplay>
-			  <source src="Audio/MUPJ/" type="audio/mp3">
-				Your browser does not MP3.
-			</audio>
-		</div>
 
-		<!-- Mit App Inventor Web Projects -->
-		
-		<div id="MT" class="hidden" onload="">
-			How? This is not open to the public.
+			<dt>BUILD 1.3 (Past)</dt>
+			<dd>- All on one HTML page</dd>
+			<dd>- Adding content to all Tabs</dd>
+			<dd>- Clicker Game Bug fixes</dd>
+			<dd>- Responsive TopNav</dd>
+			<dd>- All HTML on one Page!</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.4 (Past)</dt>
+			<dd>- Finish bug fix with Clicker Game</dd>
+			<dd>- Work on Music Project (Has'nt been updated in forever!)</dd>
+			<dd>- Slight CSS Changes.</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.5 (Past)</dt>
+			<dd>- Added 3 more tabs</dd>
+			<dd>- Added More Music </dd>
+			<dd>- CSS changes</dd>
+			<dd>- Work on Music Project</dd>
+			<dd>- Use logger removed for logistical reasons</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.6 (Current)</dt>
+			<dd>- Adding Games to the new tabs</dd>
+			<dd>- Making a real home page</dd>
+			<dd>- Posted 2 games on the Andriod App store</dd>
+			<dd> | - Rice Tapper</dd>
+			<dd> | - Bottle Cap Tapper</dd>
+			<dd>- Added Code.org Projects</dd>
+			<dd> | - OurMusic</dd>
+			<dd></dd>
+
+			<br></br>
+
+			<dt>BUILD 1.7 (Future)</dt>
+
+
+		</dl>
+	</div>
+
+	<div id="UniyProjs" class="hidden">
+		<h2>Nothing Yet...</h2>
+	</div>
+
+	<div id="MobileGames" class="hidden">
+		<h2>Nothing Yet...</h2>
+	</div>
+
+	<div id="COrgGames" class="hidden">
+		<h2>Code.org Projects</h2>
+		<iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/dlhoVPh0wEMEyzVLnJlXDWIc05_NXVHvCmNIoNaVJtM/embed"></iframe>
+	</div>
+
+	<!-- Admin Divs -->
+
+	<div id="admin" class="hidden">
+		<h4>Admin Menu.</h4>
+		<h5>Tools:</h5>
+		<button class="PGB" onclick="BCK('beta', 'Betas')">Current Betas</button>
+		<button class="PGB" onclick="TCP()">Teleport to Caleb Page</button>
+	</div>
+
+	<div id="beta" class="hidden">
+		<h5>Betas:</h5>
+		<script>
+			function A() {
+				location.href = "https://zak.jasonmccall.com/WebMain/"
+			}
+			function B() {
+				location.href = "https://Counter.lolmhhh3.repl.co/read.php?f=zjmc";
+			}
+		</script>
+		<button class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game (JS errors)</button>
+		<button class="PGB" onclick="A()">Test Web</button>
+		<button class="PGB" onclick="B()">Users</button>
+	</div>
+
+	<!-- Projects Divs -->
+
+	<div id="CG" class="hidden">
+		<p>Your data will be deleted after a year of inactivity</p>
+		<p id="ERD"></p>
+		<h2>Clicker Game</h2>
+		<br></br>
+
+		<!-- Value Display -->
+
+		<p onload="changeText('MONDI', 'Money: $'+Mon);" id="MOND" class="MONDI">Loading...</p>
+		<p onload="changeText('MULDI', 'Multi: +'+(Multi-1)+'x');" id="MULD" class="MULDI">Loading...</p>
+		<p onload="changeText('MPCD', 'Money Per Click: '+MonPC);" id="MPC" class="MPCD">Loading...</p>
+		<br></br>
+
+		<!-- Get money Button -->
+
+		<button id="GM" class="PGB" onclick="gm()">Get Money</button>
+		<br></br><br></br><br></br>
+		<h4>Upgrades</h4>
+
+		<!-- Upgrade Div -->
+
+		<div id="Upgrades" class="Upgrades">
+			<button id="Multi" class="UB" onclick="MULBUY()">Multiplyer Cost: $20</button>
+			<button id="MPCB" class="UB" onclick="MPCBUY()">Money Per Click Cost: $40</button>
 		</div>
-		© 2022. This website is protected by copywrite.
-	</body>
+	</div>
+
+	<div id="AudTest" class="hidden">
+		<h2>Music player formatting and test.</h2>
+		<p>Description:<br>My dad requested this project, I hope you enjoy by favorate music. <br><br> I did not compose or
+			play any of this music, all rights go to thier respective owners.</p>
+		<a href="https://www.youtube.com/watch?v=luQSQuCHtcI"
+			style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">Inzo - Overthinker
+			(Link)</a>
+		<br></br>
+		<audio controls autoplay>
+			<source src="Audio/MUPJ/" type="audio/mp3">
+			Your browser does not MP3.
+		</audio>
+		<br><br><br>
+		<a href="https://www.youtube.com/watch?v=aBkTkxKDduc"
+			style="text-decoration: none;color: black; padding: 2px; background-color: rgb(180, 180, 180);">C418 - Sweden -
+			Minecraft Volume Alpha (Link)</a>
+		<br></br>
+		<audio controls autoplay>
+			<source src="Audio/MUPJ/" type="audio/mp3">
+			Your browser does not MP3.
+		</audio>
+	</div>
+
+	<!-- Mit App Inventor Web Projects -->
+
+	<div id="MT" class="hidden" onload="">
+		How? This is not open to the public.
+	</div>
+	© 2022. This website is protected by copywrite.
+</body>
+
 </html>
