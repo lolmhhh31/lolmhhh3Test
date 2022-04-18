@@ -24,7 +24,6 @@ All code below is under copywrite, You can not use any of it unless you have per
 	<!-- Loading JS -->
 		
 	<script>
-		 location.href = "/Mantinace"
 		function CK(showDiv) {
 			document.getElementById(showDiv).classList.add("show", "warning");
 			document.getElementById(showDiv).classList.remove("hidden");
@@ -116,6 +115,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 				document.getElementById("AdminMenTN").classList.remove("hidden")
 			} else {
 				var Elemetss = document.getElementsByClassName("img");
+				location.href = "/Mantinace";
 				for (let index = 0; index < Elemetss.length; index++) {
 					Elemetss[index].src = "";
 				}
@@ -214,12 +214,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 				location.href = "https://zak.jasonmccall.com/CalebProj/"
 			}
 			if (tab == "employ") {
-				BCK("Employ", "Employer Only Page")
-				document.getElementById("EmployerTN").classList.add("active")
-				document.getElementById("EmployerTN").classList.remove("hidden")
-				document.getElementById("ProjectsTN").classList.add("inactive")
-				document.getElementById("ProjectsTN").classList.remove("active")
-				setCookie("Emp", 1, 30)
+
 			}
 			MIT();
 			
@@ -355,7 +350,6 @@ All code below is under copywrite, You can not use any of it unless you have per
 			<h2>My projects</h2>
 			<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 			<!-- <button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button> -->
-			<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
 		</div>
 		
 		<div id="About" class="hidden">
@@ -443,7 +437,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 			<h5>Betas:</h5>
 			<script>
 				function A() {
-					location.href = "https://zak.jasonmccall.com/WebMain/"
+					location.href = "/WebMain/"
 				}
 				function B() {
 					location.href = "https://Counter.lolmhhh3.repl.co/read.php?f=zjmc";

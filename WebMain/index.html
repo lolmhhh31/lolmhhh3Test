@@ -120,6 +120,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 				document.getElementById("AdminMenTN").classList.remove("hidden")
 			} else {
 				var Elemetss = document.getElementsByClassName("img");
+				//location.href = "/Mantinace";
 				for (let index = 0; index < Elemetss.length; index++) {
 					Elemetss[index].src = "";
 				}
@@ -337,10 +338,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 		<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
 		<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
 		<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
-		<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity
-			Games</button>
-		<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile
-			Games</button>
+		<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity Games</button>
+		<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile Games</button>
 		<button id="COrgProjsTN" onclick="BCKS('COrgGames', 'COrgProjsTN', 'Code.org Projects')">Code.org Projects</button>
 		<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -366,7 +365,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 	<div id="About" class="hidden">
 		<h2>About me</h2><br><br>
-		<p>I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I
+		<p>
+			I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I
 			know HTML, and LUA. Currently I am learning and Looking for an internship for a small comapany for there website.
 		</p>
 	</div>
@@ -420,9 +420,6 @@ All code below is under copywrite, You can not use any of it unless you have per
 			<dt>BUILD 1.6 (Current)</dt>
 			<dd>- Adding Games to the new tabs</dd>
 			<dd>- Making a real home page</dd>
-			<dd>- Posted 2 games on the Andriod App store</dd>
-			<dd> | - Rice Tapper</dd>
-			<dd> | - Bottle Cap Tapper</dd>
 			<dd>- Added Code.org Projects</dd>
 			<dd> | - OurMusic</dd>
 			<dd></dd>
@@ -430,7 +427,9 @@ All code below is under copywrite, You can not use any of it unless you have per
 			<br></br>
 
 			<dt>BUILD 1.7 (Future)</dt>
-
+			<dd>- Posted 2 games on the Andriod App store</dd>
+			<dd> | - Rice Tapper</dd>
+			<dd> | - Bottle Cap Tapper</dd>
 
 		</dl>
 	</div>
@@ -445,7 +444,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 	<div id="COrgGames" class="hidden">
 		<h2>Code.org Projects</h2>
-		<iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/dlhoVPh0wEMEyzVLnJlXDWIc05_NXVHvCmNIoNaVJtM/embed"></iframe>
+		<a class="PGB" href="https://studio.code.org/projects/applab/cCIM2EQtf7xKjJz9okwDF7xzzemFSbSVS2VyGTdFUP0">OurMusic</a>
 	</div>
 
 	<!-- Admin Divs -->
@@ -461,7 +460,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 		<h5>Betas:</h5>
 		<script>
 			function A() {
-				location.href = "https://zak.jasonmccall.com/WebMain/"
+				location.href = "/WebMain/"
 			}
 			function B() {
 				location.href = "https://Counter.lolmhhh3.repl.co/read.php?f=zjmc";
