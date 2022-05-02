@@ -8,10 +8,10 @@ All code below is under copywrite, You can not use any of it unless you have per
 <html lang="en-US">
 
 <head>
-	<title>Projects - Lols Test</title>
-	<link rel="icon" href="https://zak.jasonmccall.com/favicon.png">
+	<title>Loading...</title>
+	<link rel="icon" href="/favicon.png">
 	<meta name="description" content="Test webpage">
-	<meta name="keywords" content="lol, test">
+	<meta name="keywords" content="lolmhhh3, test">
 	<meta name="author" content="lolmhhh3">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
@@ -27,7 +27,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 	<!-- Loading JS -->
 
 	<script>
-		//location.href = "https://zak.jasonmccall.com/Mantinace"
+		//location.href = "/Mantinace"
 		function CK(showDiv) {
 			document.getElementById(showDiv).classList.add("show", "warning");
 			document.getElementById(showDiv).classList.remove("hidden");
@@ -54,9 +54,30 @@ All code below is under copywrite, You can not use any of it unless you have per
 			y[0].classList.remove("show");
 			document.getElementById(showDiv).classList.add("show");
 			document.getElementById(showDiv).classList.remove("hidden");
-			document.title = PN + " - Lols Test"
+			document.title = PN + " - Lols Site"
+		}
+		function Check(SD) {
+			if (SD == "Projects") {
+				location.search = "tab=pr";
+			}
+			if (SD == "About") {
+				location.search = "tab=ab";
+			}
+			if (SD == "Updates") {
+				location.search = "tab=up";
+			}
+			if (SD == "UniyProjs") {
+				location.search = "tab=ug";
+			}
+			if (SD == "MobileGames") {
+				location.search = "tab=mg";
+			}
+			if (SD == "COrgGames") {
+				location.search = "tab=cp";
+			}
 		}
 		function BCKS(showDiv, TNB, PN) {
+			document.title = PN + " - Lols Site"
 			var x = document.getElementsByClassName("active");
 			x[0].classList.add("inactive");
 			x[0].classList.remove("active");
@@ -67,7 +88,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 			y[0].classList.remove("show");
 			document.getElementById(showDiv).classList.add("show");
 			document.getElementById(showDiv).classList.remove("hidden");
-			document.title = PN + " - Lols Test"
+			Check(showDiv);
 		}
 		function ACK(showDiv) {
 			document.getElementById(showDiv).classList.remove("show");
@@ -141,90 +162,47 @@ All code below is under copywrite, You can not use any of it unless you have per
 				x.className = "topnav";
 			}
 		}
-		function PTN() {
-			document.getElementById("ProjectsTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("ProjectsTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Projects").classList.add("show");
-			document.getElementById("Projects").classList.remove("hidden");
-			document.title = "Projects - Lols Test"
-		}
-		function ATN() {
-			document.getElementById("AboutMeTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("AboutMeTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("About").classList.add("show");
-			document.getElementById("About").classList.remove("hidden");
-			document.title = "About Me - Lols Test"
-		}
-		function UTN() {
-			document.getElementById("UpdatesTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("UpdatesTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("Updates").classList.add("show");
-			document.getElementById("Updates").classList.remove("hidden");
-			document.title = "Updates - Lols Test"
-		}
-		function ADTN() {
-			document.getElementById("AdminMenTN").classList.remove("inactive");
-			var x = document.getElementsByClassName("active");
-			x[0].classList.add("inactive");
-			x[0].classList.remove("active");
-			document.getElementById("AdminMenTN").classList.add("active");
-			var y = document.getElementsByClassName("show");
-			y[0].classList.add("hidden");
-			y[0].classList.remove("show");
-			document.getElementById("admin").classList.add("show");
-			document.getElementById("admin").classList.remove("hidden");
-			document.title = "admin - Lols Test"
-		}
 		function loaded() {
 
 		}
+		//BCKS(Div, Top Nav Button, Page Name)
 		function lOA() {
 			GetAdmin();
 			clickerGameLoad();
 			loaded();
 			var tab = getURLVar("?tab");
-			all = all + " tab" + tab + ","
-			console.log(tab)
-			if (tab == "projects" || tab == "undefined" || tab == "") {
-				PTN()
+			if (tab == "pr" || tab == "undefined" || tab == "") {
+				BCK('Projects', 'Projects');
+				document.getElementById('ProjectsTN').classList.add("active");
+				document.getElementById('ProjectsTN').classList.remove("inactive");
 			}
-			if (tab == "about") {
-				ATN()
+			if (tab == "ab") {
+				BCK('About', 'About Me');
+				document.getElementById('AboutTN').classList.add("active");
+				document.getElementById('AboutTN').classList.remove("inactive");
 			}
-			if (tab == "uptates") {
-				UTN()
+			if (tab == "up") {
+				BCK('Updates', 'Updates')
+				document.getElementById('UpdatesTN').classList.add("active");
+				document.getElementById('UpdatesTN').classList.remove("inactive");
 			}
-			if (tab == "factorio") {
-				FTN()
+			if (tab == "ug") {
+				BCK('UniyProjs', 'Untiy Projects');
+				document.getElementById('UnityProTN').classList.add("active");
+				document.getElementById('UnityProTN').classList.remove("inactive");
+			}
+			if (tab == "mg") {
+				BCK('MobileGames', 'Mobile Games');
+				document.getElementById('PlayMobiTN').classList.add("active");
+				document.getElementById('PlayMobiTN').classList.remove("inactive");
+			}
+			if (tab == "cp") {
+				BCK('COrgGames', 'Code.org Projects');
+				document.getElementById('COrgProjsTN').classList.add("active");
+				document.getElementById('COrgProjsTN').classList.remove("inactive");
 			}
 			if (tab == "cale") {
-				location.href = "https://zak.jasonmccall.com/CalebProj/"
-			}
-			if (tab == "employ") {
-				BCK("Employ", "Employer Only Page")
-				document.getElementById("EmployerTN").classList.add("active")
-				document.getElementById("EmployerTN").classList.remove("hidden")
-				document.getElementById("ProjectsTN").classList.add("inactive")
-				document.getElementById("ProjectsTN").classList.remove("active")
-				setCookie("Emp", 1, 30)
+				location.href = "https://zak.jasonmccall.com/CalebProj/";
 			}
 			MIT();
 
@@ -332,16 +310,20 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 <body onload="lOA()">
 
+	<!-- <div class="warning"><h1></h1></div> -->
+
 	<!-- Top Navigation -->
 
 	<div id="topnav" class="topnav">
-		<button id="ProjectsTN" onclick="PTN()" class="active">Projects</button>
-		<button id="AboutMeTN" onclick="ATN()" class="inactive">About Me</button>
-		<button id="UpdatesTN" onclick="UTN()" class="inactive">Updates</button>
-		<button id="UnityProTN" onclick="BCKS('UniyProjs', 'UnityProTN', 'Untiy Projects')" class="inactive">Unity Games</button>
-		<button id="PlayMobiTN" onclick="BCKS('MobileGames', 'PlayMobiTN', 'Mobile Games')" class="inactive">Mobile Games</button>
-		<button id="COrgProjsTN" onclick="BCKS('COrgGames', 'COrgProjsTN', 'Code.org Projects')">Code.org Projects</button>
-		<button id="AdminMenTN" onclick="ADTN()" class="hidden">Admin Menu</button>
+		<button id="ProjectsTN" onclick="Check('Projects');" class="inactive">Projects</button>
+		<button id="AboutTN" onclick="Check('About');" class="inactive">About Me</button>
+		<button id="UpdatesTN" onclick="Check('Updates');" class="inactive">Updates</button>
+		<button id="UnityProTN" onclick="Check('UniyProjs');" class="inactive">Unity
+			Games</button>
+		<button id="PlayMobiTN" onclick="Check('MobileGames');" class="inactive">Mobile
+			Games</button>
+		<button id="COrgProjsTN" onclick="Check('COrgGames');">Code.org Projects</button>
+		<button id="AdminMenTN" onclick="BCKS('admin', 'AdminMenTN', 'Admin Menu');" class="hidden">Admin Menu</button>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
 		</a>
@@ -351,7 +333,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 	<!-- Loading div -->
 
 	<div id="Loading" class="show">
-		<h2>Redirecting/Loading</h2>
+		<h2>Loading...</h2>
 	</div>
 
 	<!-- Top Navigation Divs -->
@@ -360,14 +342,15 @@ All code below is under copywrite, You can not use any of it unless you have per
 		<h2>My projects</h2>
 		<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 		<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
-		<a class="PGB" href="https://PHP-Lols-Test.lolmhhh3.repl.co">Link to php learning Page</a>
+		<a class="PGB" href="https://php.test.lolmhh3.com">Link to php learning Page</a>
+		<a class="PGB" href="https://scratch.mit.edu/projects/681612100/fullscreen/">Flappy Cat</a>
 	</div>
 
 	<div id="About" class="hidden">
 		<h2>About me</h2><br><br>
 		<p>
-			I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I
-			know HTML, and LUA. Currently I am learning and Looking for an internship for a small comapany for there website.
+			I am a young aspiring developer who knows 4 languages (In one language I include, HTML, CSS, and Javascript). I
+			know HTML, C#, PHP, and LUA.
 		</p>
 	</div>
 
@@ -417,19 +400,24 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 			<br></br>
 
-			<dt>BUILD 1.6 (Current)</dt>
-			<dd>- Adding Games to the new tabs</dd>
-			<dd>- Making a real home page</dd>
+			<dt>BUILD 1.6 (Past)</dt>
+			<dd>- Adding a game to the new tab</dd>
 			<dd>- Added Code.org Projects</dd>
 			<dd> | - OurMusic</dd>
 			<dd></dd>
 
 			<br></br>
 
-			<dt>BUILD 1.7 (Future)</dt>
-			<dd>- Posted 2 games on the Andriod App store</dd>
-			<dd> | - Rice Tapper</dd>
-			<dd> | - Bottle Cap Tapper</dd>
+			<dt>BUILD 1.7 (Past)</dt>
+			<dd>- GOT NEW URL!!!!</dd>
+			<dd>- CHanged Favicon and Name</dd>
+			<dd>- Have more flexibiltiy with stuff</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.8 (Current)</dt>
+			<dd>JavaScript Redo</dd>
+			<dd>Qurarry String Varibles Work</dd>
 
 		</dl>
 	</div>
@@ -444,7 +432,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 	<div id="COrgGames" class="hidden">
 		<h2>Code.org Projects</h2>
-		<a class="PGB" href="https://studio.code.org/projects/applab/cCIM2EQtf7xKjJz9okwDF7xzzemFSbSVS2VyGTdFUP0">OurMusic</a>
+		<a class="PGB"
+			href="https://studio.code.org/projects/applab/cCIM2EQtf7xKjJz9okwDF7xzzemFSbSVS2VyGTdFUP0">OurMusic</a>
 	</div>
 
 	<!-- Admin Divs -->
