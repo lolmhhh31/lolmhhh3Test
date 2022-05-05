@@ -56,6 +56,13 @@ All code below is under copywrite, You can not use any of it unless you have per
 			document.getElementById(showDiv).classList.remove("hidden");
 			document.title = PN + " - Lols Site"
 		}
+		function changeText(id, text) {
+			if (text != 'NaN' && text != null && text != '' && id != 'NaN' && id != null && id != '') {
+				document.getElementById(id).innerHTML = text;
+			}
+			console.log(id + " id");
+			console.log(text + " text");
+		}
 		function Check(SD) {
 			if (SD == "Projects") {
 				location.search = "tab=pr";
@@ -166,6 +173,21 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 		}
 		//BCKS(Div, Top Nav Button, Page Name)
+		function LoadCS() { // CSMD
+			changeText("CST1B", "T1 Company Cost: 60");
+			changeText("CST2B", "T2 Company Cost: 240");
+			changeText("CST3B", "T3 Company Cost: 960");
+			changeText("CSMD", "Money: "+Money);
+			if (getCookie("T1C") > 0) {
+				changeText("CST1B", "T1 Company Cost: " + (60 * T1Company) * BAM);
+			}
+			if (getCookie("T2C") > 0) {
+				changeText("CST2B", "T2 Company Cost: " + (240 * T2Company) * BAM);
+			}
+			if (getCookie("T3C") > 0) {
+				changeText("CST3B", "T3 Company Cost: "+ (960 * T3Company) * BAM);
+			}
+		}
 		function lOA() {
 			GetAdmin();
 			clickerGameLoad();
@@ -204,8 +226,12 @@ All code below is under copywrite, You can not use any of it unless you have per
 			if (tab == "cale") {
 				location.href = "https://zak.jasonmccall.com/CalebProj/";
 			}
+			if (getURLVar("b") == "1") {
+				document.getElementById("b").classList.add("warning");
+				document.getElementById('b').classList.remove("inactive");
+			}
 			MIT();
-
+			LoadCS();
 		}
 	</script>
 
@@ -238,6 +264,7 @@ All code below is under copywrite, You can not use any of it unless you have per
 		var Mon = 0;
 		var Multi = 1;
 		var MonPC = 1;
+		var BAM = 1;
 		if (getCookie("money") > 0) {
 			Mon = getCookie("money")
 		}
@@ -257,13 +284,6 @@ All code below is under copywrite, You can not use any of it unless you have per
 			MonPC = 1;
 			setCookie("STRS", 0, 365);
 		}
-		function changeText(id, text) {
-			if (text != 'NaN' && text != null && text != '' && id != 'NaN' && id != null && id != '') {
-				document.getElementById(id).innerHTML = text;
-			}
-			console.log(id + " id");
-			console.log(text + " text");
-		}
 		function gm() {
 			Mon = MonPC * Multi + Mon;
 			console.log(Mon + " : " + MonPC * Multi)
@@ -279,24 +299,23 @@ All code below is under copywrite, You can not use any of it unless you have per
 			}
 		}
 		function MULBUY() {
-			if (Mon >= (20 * Multi) * MonPC) {
-				Mon = Mon - (20 * Multi) * MonPC;
-				Multi = Multi + 1;
+			if (Mon >= (20 * Multi) * BAM) {
+				Mon = Mon - (20 * Multi) * BAM;
+				Multi = Multi + BAM;
 				changeText("MOND", "Money: $" + Mon);
 				changeText("MULD", "Multi: +" + (Multi - 1) + "x");
-				changeText("Multi", "Multiplayer Cost: $" + (20 * Multi) * MonPC);
-				setCookie("multi", Multi, 365)
+				changeText("Multi", "Multiplayer Cost: $" + (20 * Multi) * BAM);
+				setCookie("multi", Multi, 365);
 			}
 		}
 		function MPCBUY() {
-			if (Mon >= 40 * MonPC) {
-				Mon = Mon - (40 * MonPC);
-				MonPC = MonPC + 1;
+			if (Mon >= (40 * MonPC) * BAM) {
+				Mon = Mon - (40 * MonPC) * BAM;
+				MonPC = MonPC + BAM;
 				changeText("MOND", "Money: $" + Mon);
 				changeText("MPC", "Money Per Click: " + MonPC);
-				changeText("MPCB", "Money Per Clicke Cost: $" + 40 * MonPC)
-				changeText("Multi", "Multiplayer Cost: $" + (20 * Multi) * MonPC);
-				setCookie("mpc", MonPC, 365)
+				changeText("MPCB", "Money Per Clicke Cost: $" + (40 * MonPC) * BAM);
+				setCookie("mpc", MonPC, 365);
 			}
 		}
 		function clickerGameLoad() {
@@ -304,13 +323,121 @@ All code below is under copywrite, You can not use any of it unless you have per
 			changeText('MULD', 'Multi: +' + (Multi - 1) + 'x');
 			changeText('MPC', 'Money Per Click: ' + MonPC);
 		}
+		function CBAM() {
+			if (BAM == 100000000) {
+				BAM = 1;
+			} else {
+				BAM = BAM * 10;
+			}
+			changeText("Multi", "Multiplayer Cost: $" + (20 * Multi) * BAM);
+			changeText("MPCB", "Money Per Clicke Cost: $" + (40 * MonPC) * BAM);
+			changeText("CSBAM", "Current Buy Amount: " + BAM);
+			changeText("CRBM", "Current Buy Amount: " + BAM);
+			changeText("CST1B", "T1 Company Cost: "+(60 * T1Company) * BAM);
+			changeText("CST2B", "T2 Company Cost: "+(240 * T2Company) * BAM);
+			changeText("CST3B", "T3 Company Cost: "+(960 * T3Company) * BAM);
+		}
+	</script>
+
+	<!-- Company Simulator JS -->
+
+	<script>
+		var Money = 0;
+		var WMoney = 0;
+		var T1Company = 1;
+		var T2Company = 1;
+		var T3Company = 1;
+		function c() {
+			if (Money == "NaN" || Money == "Infinity") {
+				Money = 0;
+				setCookie("CSM", 0, 365);
+				setCookie("CSPI", 0, 365);
+				setCookie("T1C", 1, 365);
+				setCookie("T2C", 1, 365);
+				setCookie("T3C", 1, 365);
+				location.href = "https://zak.jasonmccall.com/?StatsReset=1";
+			}
+		}
+		if (getCookie("CSM") > 0) {
+			Money = getCookie("CSM");
+		}
+		if (getCookie("CSPI") > 0) {
+			WMoney = getCookie("CSPI");
+		}
+		if (getCookie("T1C") > 1) {
+			T1Company = getCookie("T1C");
+		}
+		if (getCookie("T2C") > 1) {
+			T2Company = getCookie("T2C");
+		}
+		if (getCookie("T3C") > 1) {
+			T3Company = getCookie("T3C");
+		}
+		function SCCPI() {
+			Money = Money + WMoney;
+			WMoney = 0;
+			changeText("CSPID", "Passive Income To Collect: "+WMoney);
+			changeText("CSMD", "Money: "+Money);
+			c()
+		}
+		function SCGM() {
+			Money = Money + 1;
+			changeText("CSMD", "Money: "+Money);
+			setCookie("CSM", Money, 365);
+			c()
+		}
+		function CSBT1F() {
+			// 60 CST1B
+			if (Money >= (60 * T1Company) * BAM) {
+				Money = Money -  (60 * T1Company) * BAM;
+				T1Company = T1Company + BAM;
+				changeText("CST1B", "T1 Company Cost: "+(60 * T1Company) * BAM);
+				changeText("CSMD", "Money: "+Money);
+				setCookie("T1C", T1Company, 365);
+				c()
+			}
+		}
+		function CSBT2F() {
+			// 240
+			if (Money >=  (240 * T2Company) * BAM) {
+				Money = Money -  (240 * T2Company) * BAM;
+				T2Company = T2Company + BAM;
+				changeText("CST2B", "T2 Company Cost: "+(240 * T2Company) * BAM);
+				changeText("CSMD", "Money: "+Money);
+				setCookie("T2C", T2Company, 365);
+				c()
+			}
+		}
+		function CSBT3F() {
+			// 960
+			if (Money >=  (960 * T3Company) * BAM) {
+				Money = Money -  (960 * T3Company) * BAM;
+				T3Company = T3Company + BAM;
+				changeText("CST3B", "T3 Company Cost: "+(960 * T3Company) * BAM);
+				changeText("CSMD", "Money: "+Money);
+				setCookie("T3C", T3Company, 365);
+				c()
+			}
+		}
+		function Loop() {
+			setTimeout(function() {
+				WMoney = WMoney + (T1Company * 20 - 20) + (T2Company * 40 - 40) + (T3Company * 80 - 80);
+				setCookie("CSPI", WMoney, 365);
+				changeText("CSPID", "Passive Income To Collect: "+WMoney);
+				c()
+				Loop();
+			}, 1000);
+		}
+		Loop();
 	</script>
 
 </head>
 
 <body onload="lOA()">
 
-	<!-- <div class="warning"><h1></h1></div> -->
+	<div id="b" class="hidden">
+		<h1>This is the beta page. Everything on this IS NOT FINAL. Things may change.</h1>
+	</div>
 
 	<!-- Top Navigation -->
 
@@ -342,6 +469,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 		<h2>My projects</h2>
 		<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 		<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
+		<button id="supp" class="PGB" onclick="BCK('SEM', 'E-Mail Support')">E-Mail Support</button>
+		<button id="CSA" class="PGB" onclick="BCK('CS', 'Company Simulator')">Company Simulator</button>
 		<a class="PGB" href="https://php.test.lolmhh3.com">Link to php learning Page</a>
 		<a class="PGB" href="https://scratch.mit.edu/projects/681612100/fullscreen/">Flappy Cat</a>
 	</div>
@@ -349,8 +478,8 @@ All code below is under copywrite, You can not use any of it unless you have per
 	<div id="About" class="hidden">
 		<h2>About me</h2><br><br>
 		<p>
-			I am a young aspiring developer who knows 2 languages (In one language I include, HTML, CSS, and Javascript). I
-			know HTML, and LUA.
+			I am a young aspiring developer who knows 4 languages (In one language I include, HTML, CSS, and Javascript). I
+			know HTML, C#, PHP, and LUA.
 		</p>
 	</div>
 
@@ -415,9 +544,20 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 			<br></br>
 
-			<dt>BUILD 1.8 (Current)</dt>
+			<dt>BUILD 1.8 (Past)</dt>
 			<dd>JavaScript Redo</dd>
 			<dd>Qurarry String Varibles Work</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.9 (Past)</dt>
+			<dd>- Email support@lolmhh3.com</dd>
+			<dd>- Clicker Game Bug Fixes</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.10 or 2.1</dt>
+			<dd>- New Game</dd>
 
 		</dl>
 	</div>
@@ -462,6 +602,23 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 	<!-- Projects Divs -->
 
+	<div id="SEM" class="hidden">
+		<form action="emailto:support@lolmhh3.com" method="post" enctype="text/plain">
+			Name:<br>
+			<input type="text" name="name"><br>
+			E-mail:<br>
+			<input type="text" name="mail"><br>
+			Problem:<br>
+			<input type="text" name="comment" size="50"><br><br>
+			<input type="submit" value="Send">
+			<input type="reset" value="Reset">
+		</form>
+	</div>
+
+	<div id="Vdiv" class="hidden"><iframe
+			src="https://docs.google.com/forms/d/e/1FAIpQLSeqdoC8V2Ufx94rJ0iUU5w_uOWUSKNvkbOdXEVtR7FGl8df1w/viewform?embedded=true"
+			width="640" height="518" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
+
 	<div id="CG" class="hidden">
 		<p>Your data will be deleted after a year of inactivity</p>
 		<p id="ERD"></p>
@@ -478,7 +635,11 @@ All code below is under copywrite, You can not use any of it unless you have per
 		<!-- Get money Button -->
 
 		<button id="GM" class="PGB" onclick="gm()">Get Money</button>
-		<br></br><br></br><br></br>
+		<br></br><br></br>
+		<button id="CBM" class="PGB" onclick="CBAM()">Change Buy Amount</button>
+		<br></br><br></br>
+		<p id="CRBM" class="MONDI">Current Buy Amount: 1</p>
+		<br></br><br></br>
 		<h4>Upgrades</h4>
 
 		<!-- Upgrade Div -->
@@ -512,11 +673,39 @@ All code below is under copywrite, You can not use any of it unless you have per
 		</audio>
 	</div>
 
-	<!-- Mit App Inventor Web Projects -->
+	<div id="CS" class="hidden">
+		<p>You data will be deleted after 1 year of inactivity.</p>
+		<h1>Company Simulator</h1>
 
-	<div id="MT" class="hidden" onload="">
-		How? This is not open to the public.
+		
+		<br></br><br></br>
+
+		
+		<h3 id="CSMD">Money: Loading...</h3>
+		<button id="CSGM" class="PGB" onclick="SCGM()">Get Money</button>
+
+		
+		<br></br><br></br>
+
+		
+		<h3 id="CSPID">Passive Income: Loading...</h3>
+		<button id="CSCPI" class="PGB" onclick="SCCPI()">Collect Passive Income</button>
+
+		
+		<br></br><br></br><br></br>
+
+
+		<button id="CBM" class="PGB" onclick="CBAM()">Change Buy Amount</button>
+		<br></br><br></br>
+		<p id="CSBAM" class="MONDI">Current Buy Amount: 1</p>
+		<br></br>
+		<div id="CSB" class="Updrades">
+			<button id="CST1B" class="UB" onclick="CSBT1F()">T1 Company Cost: Loading...</button>
+			<button id="CST2B" class="UB" onclick="CSBT2F()">T2 Company Cost: Loading...</button>
+			<button id="CST3B" class="UB" onclick="CSBT3F()">T3 Company Cost: Loading...</button>
+		</div>
 	</div>
+
 	© 2022. This website is protected by copywrite.
 </body>
 
