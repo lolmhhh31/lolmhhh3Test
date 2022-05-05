@@ -177,6 +177,9 @@ All code below is under copywrite, You can not use any of it unless you have per
 			changeText("CST1B", "T1 Company Cost: 60");
 			changeText("CST2B", "T2 Company Cost: 240");
 			changeText("CST3B", "T3 Company Cost: 960");
+			changeText("CST4B", "T4 Company Cost: 1920");
+			changeText("CST5B", "T5 Company Cost: 3840");
+			changeText("CST6B", "T6 Company Cost: 4880");
 			changeText("CSMD", "Money: "+Money);
 			if (getCookie("T1C") > 0) {
 				changeText("CST1B", "T1 Company Cost: " + (60 * T1Company) * BAM);
@@ -186,6 +189,15 @@ All code below is under copywrite, You can not use any of it unless you have per
 			}
 			if (getCookie("T3C") > 0) {
 				changeText("CST3B", "T3 Company Cost: "+ (960 * T3Company) * BAM);
+			}
+			if (getCookie("T4C") > 0) {
+				changeText("CST4B", "T4 Company Cost: " + (1920 * T4Company) * BAM);
+			}
+			if (getCookie("T5C") > 0) {
+				changeText("CST5B", "T5 Company Cost: " + (3840 * T5Company) * BAM);
+			}
+			if (getCookie("T6C") > 0) {
+				changeText("CST6B", "T6 Company Cost: "+ (4880 * T6Company) * BAM);
 			}
 		}
 		function lOA() {
@@ -336,6 +348,9 @@ All code below is under copywrite, You can not use any of it unless you have per
 			changeText("CST1B", "T1 Company Cost: "+(60 * T1Company) * BAM);
 			changeText("CST2B", "T2 Company Cost: "+(240 * T2Company) * BAM);
 			changeText("CST3B", "T3 Company Cost: "+(960 * T3Company) * BAM);
+			changeText("CST4B", "T4 Company Cost: "+(1920 * T4Company) * BAM);
+			changeText("CST5B", "T5 Company Cost: "+(3840 * T5Company) * BAM);
+			changeText("CST6B", "T6 Company Cost: "+(4880 * T6Company) * BAM);
 		}
 	</script>
 
@@ -344,9 +359,15 @@ All code below is under copywrite, You can not use any of it unless you have per
 	<script>
 		var Money = 0;
 		var WMoney = 0;
+
+		//Company Ts
 		var T1Company = 1;
 		var T2Company = 1;
 		var T3Company = 1;
+		var T4Company = 1;
+		var T5Company = 1;
+		var T6Company = 1;
+		
 		function c() {
 			if (Money == "NaN" || Money == "Infinity") {
 				Money = 0;
@@ -355,6 +376,9 @@ All code below is under copywrite, You can not use any of it unless you have per
 				setCookie("T1C", 1, 365);
 				setCookie("T2C", 1, 365);
 				setCookie("T3C", 1, 365);
+				setCookie("T4C", 1, 365);
+				setCookie("T5C", 1, 365);
+				setCookie("T6C", 1, 365);
 				location.href = "https://zak.jasonmccall.com/?StatsReset=1";
 			}
 		}
@@ -372,6 +396,15 @@ All code below is under copywrite, You can not use any of it unless you have per
 		}
 		if (getCookie("T3C") > 1) {
 			T3Company = getCookie("T3C");
+		}
+		if (getCookie("T4C") > 1) {
+			T4Company = getCookie("T4C");
+		}
+		if (getCookie("T5C") > 1) {
+			T5Company = getCookie("T5C");
+		}
+		if (getCookie("T6C") > 1) {
+			T6Company = getCookie("T6C");
 		}
 		function SCCPI() {
 			Money = Money + WMoney;
@@ -419,9 +452,42 @@ All code below is under copywrite, You can not use any of it unless you have per
 				c()
 			}
 		}
+		function CSBT4F() {
+			// 960
+			if (Money >=  (1920 * T4Company) * BAM) {
+				Money = Money -  (1920 * T4Company) * BAM;
+				T4Company = T4Company + BAM;
+				changeText("CST4B", "T4 Company Cost: "+(1920 * T4Company) * BAM);
+				changeText("CSMD", "Money: "+Money);
+				setCookie("T4C", T4Company, 365);
+				c()
+			}
+		}
+		function CSBT5F() {
+			// 960
+			if (Money >=  (3840 * T5Company) * BAM) {
+				Money = Money -  (3840 * T5Company) * BAM;
+				T5Company = T5Company + BAM;
+				changeText("CST5B", "T5 Company Cost: "+(3840 * T5Company) * BAM);
+				changeText("CSMD", "Money: "+Money);
+				setCookie("T5C", T5Company, 365);
+				c()
+			}
+		}
+		function CSBT6F() {
+			// 960
+			if (Money >=  (4880 * T6Company) * BAM) {
+				Money = Money -  (4880 * T6Company) * BAM;
+				T6Company = T6Company + BAM;
+				changeText("CST6B", "T6 Company Cost: "+(4880 * T6Company) * BAM);
+				changeText("CSMD", "Money: "+Money);
+				setCookie("T6C", T6Company, 365);
+				c()
+			}
+		}
 		function Loop() {
 			setTimeout(function() {
-				WMoney = WMoney + (T1Company * 20 - 20) + (T2Company * 40 - 40) + (T3Company * 80 - 80);
+				WMoney = WMoney + (T1Company * 20 - 20) + (T2Company * 40 - 40) + (T3Company * 80 - 80) + (T4Company * 160 - 160) + (T5Company * 320 - 320) + (T6Company * 640 - 640);
 				setCookie("CSPI", WMoney, 365);
 				changeText("CSPID", "Passive Income To Collect: "+WMoney);
 				c()
@@ -469,8 +535,11 @@ All code below is under copywrite, You can not use any of it unless you have per
 		<h2>My projects</h2>
 		<button id="cgb" class="PGB" onclick="BCK('CG', 'Clicker Game')">Clicker Game</button>
 		<button id="atb" class="PGB" onclick="BCK('AudTest', 'Audio Test')">Audio Test (Wip)</button>
-		<button id="supp" class="PGB" onclick="BCK('SEM', 'E-Mail Support')">E-Mail Support</button>
 		<button id="CSA" class="PGB" onclick="BCK('CS', 'Company Simulator')">Company Simulator</button>
+
+		<br></br><br></br><br></br>
+		
+		<button id="supp" class="PGB" onclick="BCK('SEM', 'E-Mail Support')">E-Mail Support</button>
 		<a class="PGB" href="https://php.test.lolmhh3.com">Link to php learning Page</a>
 		<a class="PGB" href="https://scratch.mit.edu/projects/681612100/fullscreen/">Flappy Cat</a>
 	</div>
@@ -556,8 +625,14 @@ All code below is under copywrite, You can not use any of it unless you have per
 
 			<br></br>
 
-			<dt>BUILD 1.10 or 2.1</dt>
+			<dt>BUILD 1.10 (Past)</dt>
 			<dd>- New Game</dd>
+
+			<br></br>
+
+			<dt>BUILD 1.10.1 (Current)</dt>
+			<dd>- Cleaned Up Projects Tab</dd>
+			<dd>- Company Simulator Update</dd>
 
 		</dl>
 	</div>
@@ -703,6 +778,10 @@ All code below is under copywrite, You can not use any of it unless you have per
 			<button id="CST1B" class="UB" onclick="CSBT1F()">T1 Company Cost: Loading...</button>
 			<button id="CST2B" class="UB" onclick="CSBT2F()">T2 Company Cost: Loading...</button>
 			<button id="CST3B" class="UB" onclick="CSBT3F()">T3 Company Cost: Loading...</button>
+			<br></br><br></br>
+			<button id="CST4B" class="UB" onclick="CSBT4F()">T4 Company Cost: Loading...</button>
+			<button id="CST5B" class="UB" onclick="CSBT5F()">T5 Company Cost: Loading...</button>
+			<button id="CST6B" class="UB" onclick="CSBT6F()">T6 Company Cost: Loading...</button>
 		</div>
 	</div>
 
